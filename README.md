@@ -1,6 +1,8 @@
 # CMPT306-GROUP10
 GitHub Repo for Group 10 of CMPT 306 Fall 2020's Unity Project
 
+**NOTE:** Currently within this repo is a Unity Project "CMPT 306 Group 10 Project" - we may want to get rid of this and replace it with a better named one (i.e. whatever our game is actually called) 
+
 # Tutorial 
 1. Download Unity with Unity Hub and Version 2020.1.4f1
 2. Download GitHub's Desktop Client and sign into it (or just use the CLI)
