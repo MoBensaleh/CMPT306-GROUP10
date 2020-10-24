@@ -6,14 +6,17 @@ using UnityEngine.EventSystems;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 8.0f;
+    Camera viewCamera;
     public Rigidbody2D rb;
     private Vector2 moveDirection;
 
     // Update is called once per frame
     void Update()
     {
+        //Vector3 mousePos = viewCamera.
         // Input
         ProcessInputs();
+        //transform.LookAt(mouseP)
 
     }
 
