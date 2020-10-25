@@ -5,8 +5,8 @@ using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private FieldOfView fov;
     public float moveSpeed = 8.0f;
-    Camera viewCamera;
     public Rigidbody2D rb;
     private Vector2 moveDirection;
 
@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     {
         // Movement
         Move();
+        
     }
 
     void ProcessInputs()
@@ -38,5 +39,6 @@ public class PlayerMovement : MonoBehaviour
     {
       
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+        fov.SetOrigin(transform.position);
     }
 }

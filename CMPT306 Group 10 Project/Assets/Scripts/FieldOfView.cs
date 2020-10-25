@@ -29,10 +29,9 @@ public class FieldOfView : MonoBehaviour {
     private void Start() {
         mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = mesh;
-        fov = 90f;
-        viewDistance = 5f;
+        fov = 70f;
+        viewDistance = 10f;
         origin = Vector3.zero;
-        Debug.Log("Started");
     }
 
     private void LateUpdate() {
@@ -51,19 +50,15 @@ public class FieldOfView : MonoBehaviour {
         for (int i = 0; i <= rayCount; i++) {
             Vector3 vertex;
             RaycastHit2D raycastHit2D = Physics2D.Raycast(origin, GetVectorFromAngle(angle), viewDistance, layerMask);
-            if (raycastHit2D.collider == null) {
-                // No hit
-                vertex = origin + GetVectorFromAngle(angle) * viewDistance;
-                Debug.Log("No Hit");
-            } else {
-                // Hit object
-                vertex = raycastHit2D.point;
-                Debug.Log("Hithithit");
-            }
+
+            if (raycastHit2D.collider != null) vertex = raycastHit2D.point;
+
+            else vertex = origin + GetVectorFromAngle(angle) * viewDistance;
+
             vertices[vertexIndex] = vertex;
 
             if (i > 0) {
-                triangles[triangleIndex + 0] = 0;
+                triangles[triangleIndex] = 0;
                 triangles[triangleIndex + 1] = vertexIndex - 1;
                 triangles[triangleIndex + 2] = vertexIndex;
 
@@ -78,7 +73,7 @@ public class FieldOfView : MonoBehaviour {
         mesh.vertices = vertices;
         mesh.uv = uv;
         mesh.triangles = triangles;
-        mesh.bounds = new Bounds(origin, Vector3.one * 1000f);
+        mesh.RecalculateBounds();
     }
 
     public void SetOrigin(Vector3 origin) {
@@ -96,5 +91,6 @@ public class FieldOfView : MonoBehaviour {
     public void SetViewDistance(float viewDistance) {
         this.viewDistance = viewDistance;
     }
+
 
 }
