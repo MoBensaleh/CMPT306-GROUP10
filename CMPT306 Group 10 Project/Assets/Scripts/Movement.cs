@@ -1,19 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class PlayerMovement : MonoBehaviour
+public class Movement : MonoBehaviour
 {
-    public float moveSpeed = 25.0f;
+
+    [SerializeField] private FieldOfView fov;
+    public float moveSpeed = 8.0f;
     public Rigidbody2D rb;
     private Vector2 moveDirection;
 
-    // Update is called once per frame
     void Update()
     {
-        // Input
         ProcessInputs();
+
 
     }
 
@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     {
         // Movement
         Move();
+
     }
 
     void ProcessInputs()
@@ -33,6 +34,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
+
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+        fov.SetOrigin(transform.position);
     }
 }
