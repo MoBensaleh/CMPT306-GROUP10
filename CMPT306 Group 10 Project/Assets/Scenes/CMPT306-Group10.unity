@@ -106473,6 +106473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09981f7a246731d428d337c17186983c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 316176848}
 --- !u!114 &1096244254
 MonoBehaviour:
   m_ObjectHideFlags: 0
