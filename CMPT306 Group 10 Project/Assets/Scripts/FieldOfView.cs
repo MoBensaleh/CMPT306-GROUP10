@@ -29,8 +29,8 @@ public class FieldOfView : MonoBehaviour {
     private void Start() {
         mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = mesh;
-        fov = 70f;
-        viewDistance = 50f;
+        fov = 60f;
+        viewDistance = 10f;
         origin = Vector3.zero;
     }
 
