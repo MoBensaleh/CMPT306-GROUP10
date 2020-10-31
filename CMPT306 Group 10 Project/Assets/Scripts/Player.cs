@@ -18,19 +18,9 @@ public class Player : MonoBehaviour
 
     float horizontalInput, verticalInput;
 
-    //BEGIN Inventory (This is just a personal note for Mac to keep track of which code is his)
-    [SerializeField] private UI_Inventory uiInventory;
-    private Inventory inventory;
-    //END Inventory
-
     private void Awake()
     {
         rbody = GetComponent<Rigidbody2D>();
-
-        //BEGIN Inventory
-        inventory = new Inventory();
-        uiInventory.SetInventory(inventory);
-        //END Inventory
     }
 
 
