@@ -25,12 +25,13 @@ public class GridMap : MonoBehaviour
         yLength = Mathf.RoundToInt(size.y/sectionDiameter);
 
         gridMap = new State[xLength, yLength];
-        Vector3 leftCorner = transform.position - (size.y)/2 * Vector3.up - (size.x)/2 * Vector3.right;
+        Vector2 transform2D = new Vector2(transform.position.x, transform.position.y);
+        Vector2 leftCorner = transform2D - (size.y)/2 * Vector2.up - (size.x)/2 * Vector2.right;
             
         for (int i = 0; i < xLength; i++) {
             for (int j = 0; j < yLength; j++) {
-                Vector3 location = leftCorner + Vector3.up * (sectionRadius + j * sectionDiameter) + Vector3.right * (sectionRadius + i * sectionDiameter);
-                bool unblocked = !(Physics.CheckSphere(location, sectionRadius, blockedLayer));
+                Vector2 location = leftCorner + Vector2.up * (sectionRadius + j * sectionDiameter) + Vector2.right * (sectionRadius + i * sectionDiameter);
+                bool unblocked = !(Physics2D.OverlapCircle(location, sectionRadius, blockedLayer));
                 gridMap[i,j] = new State(unblocked, location, i, j);
             }
         }
