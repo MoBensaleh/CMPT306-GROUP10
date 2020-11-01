@@ -46,6 +46,9 @@ public class DungeonGenerator : MonoBehaviour
         NewRoute(x, y, routeLength, previousPos);
 
         FillWalls();
+
+        GridMap gridMap = GetComponent<GridMap>();
+        gridMap.updateGridMap();
     }
 
     private void FillWalls()
@@ -163,5 +166,9 @@ public class DungeonGenerator : MonoBehaviour
                 groundMap.SetTile(tilePos, groundTile);
             }
         }
+    }
+
+    public Tilemap getPitMap() {
+        return this.pitMap;
     }
 }

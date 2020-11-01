@@ -1,16 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class GridMap : MonoBehaviour
 {
     public bool ShowGrid;
     public LayerMask blockedLayer;
-    public Vector2 size;
+    Vector2 size;
     int xLength, yLength;
     float sectionDiameter;
     public float sectionRadius;
     State[,] gridMap;
+    DungeonGenerator dungeonGenerator;
+    int xStart, xEnd, yStart, yEnd;
     public int LargestSize {
         get {
             return xLength*yLength;
@@ -20,6 +23,17 @@ public class GridMap : MonoBehaviour
     }
 
     void Awake() {
+        dungeonGenerator = GetComponent<DungeonGenerator>();
+        updateGridMap();
+    }
+
+    public void updateGridMap() {
+        Tilemap pitmap = dungeonGenerator.getPitMap();
+        BoundsInt bounds = pitmap.cellBounds;
+        size = new Vector2(bounds.xMax - bounds.xMin, bounds.yMax - bounds.yMin);
+        Debug.Log(size.x);
+        Debug.Log(size.y);
+
         sectionDiameter = 2 * sectionRadius;
         xLength = Mathf.RoundToInt(size.x/sectionDiameter);
         yLength = Mathf.RoundToInt(size.y/sectionDiameter);
