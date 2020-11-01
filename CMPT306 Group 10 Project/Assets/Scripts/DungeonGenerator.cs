@@ -34,7 +34,7 @@ public class DungeonGenerator : MonoBehaviour
 
     private int routeCount = 0;
 
-    private void Start()
+    private void Awake()
     {
         int x = 0;
         int y = 0;
@@ -170,5 +170,29 @@ public class DungeonGenerator : MonoBehaviour
 
     public Tilemap getPitMap() {
         return this.pitMap;
+    }
+
+    public Tilemap getWallMap() {
+        return this.wallMap;
+    }
+
+    public Tilemap getGroundMap() {
+        return this.groundMap;
+    }
+
+    public Tile getPitTile() {
+        return this.pitTile;
+    }
+
+    public Tile getGroundTile() {
+        return this.groundTile;
+    }
+
+    public Tile getTopWallTile() {
+        return this.topWallTile;
+    }
+
+    public Tile getBotWallTile() {
+        return this.botWallTile;
     }
 }
