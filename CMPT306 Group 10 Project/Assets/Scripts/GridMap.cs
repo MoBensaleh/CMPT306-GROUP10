@@ -24,11 +24,14 @@ public class GridMap : MonoBehaviour
     }
 
     void Awake() {
+        Debug.Log("Grid Map gets Dungeon Generator");
         dungeonGenerator = GetComponent<DungeonGenerator>();
         // updateGridMap();
+        Debug.Log("Awake GridMap");
     }
 
     public void updateGridMap() {
+                Debug.Log("update Grid Map");
         Tilemap tileMap = dungeonGenerator.getPitMap();
         bounds = tileMap.cellBounds;
         size = new Vector2(bounds.xMax - bounds.xMin, bounds.yMax - bounds.yMin);
@@ -78,6 +81,7 @@ public class GridMap : MonoBehaviour
         int i = Mathf.RoundToInt((xLength - 1) * Mathf.Clamp01(((size.x)/2 + location.x - bounds.center.x) / size.x));
         int j = Mathf.RoundToInt((yLength - 1) * Mathf.Clamp01(((size.y)/2 + location.y - bounds.center.y) / size.y));
 
+        Debug.Log(location);
         return gridMap[i,j];
     }
 
