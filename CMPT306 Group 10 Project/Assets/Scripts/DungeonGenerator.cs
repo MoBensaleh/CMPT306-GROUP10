@@ -36,7 +36,6 @@ public class DungeonGenerator : MonoBehaviour
 
     private void Awake()
     {
-                Debug.Log("Awake Dungeon Generator");
         int x = 0;
         int y = 0;
         int routeLength = 0;
@@ -51,7 +50,6 @@ public class DungeonGenerator : MonoBehaviour
     }
 
     private void Start() {
-                Debug.Log("Dungeon Generator gets Grid Map");
         GridMap gridMap = GetComponent<GridMap>();
         gridMap.updateGridMap();
     }
