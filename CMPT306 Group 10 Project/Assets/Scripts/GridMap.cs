@@ -14,6 +14,7 @@ public class GridMap : MonoBehaviour
     State[,] gridMap;
     DungeonGenerator dungeonGenerator;
     int xStart, xEnd, yStart, yEnd;
+    BoundsInt bounds;
     public int LargestSize {
         get {
             return xLength*yLength;
@@ -28,18 +29,17 @@ public class GridMap : MonoBehaviour
     }
 
     public void updateGridMap() {
-        Tilemap pitmap = dungeonGenerator.getPitMap();
-        BoundsInt bounds = pitmap.cellBounds;
+        Tilemap tileMap = dungeonGenerator.getPitMap();
+        bounds = tileMap.cellBounds;
         size = new Vector2(bounds.xMax - bounds.xMin, bounds.yMax - bounds.yMin);
-        Debug.Log(size.x);
-        Debug.Log(size.y);
 
         sectionDiameter = 2 * sectionRadius;
         xLength = Mathf.RoundToInt(size.x/sectionDiameter);
         yLength = Mathf.RoundToInt(size.y/sectionDiameter);
 
         gridMap = new State[xLength, yLength];
-        Vector2 transform2D = new Vector2(transform.position.x, transform.position.y);
+        // Vector2 transform2D = new Vector2(transform.position.x, transform.position.y);
+        Vector2 transform2D = new Vector2(bounds.center.x, bounds.center.y);
         Vector2 leftCorner = transform2D - (size.y)/2 * Vector2.up - (size.x)/2 * Vector2.right;
             
         for (int i = 0; i < xLength; i++) {
@@ -52,8 +52,10 @@ public class GridMap : MonoBehaviour
     }
 
     public State RetrieveState(Vector3 location) {
-        int i = Mathf.RoundToInt((xLength - 1) * Mathf.Clamp01(((size.x)/2 + location.x) / size.x));
-        int j = Mathf.RoundToInt((yLength - 1) * Mathf.Clamp01(((size.y)/2 + location.y) / size.y));
+        // int i = Mathf.RoundToInt((xLength - 1) * Mathf.Clamp01(((size.x)/2 + location.x) / size.x));
+        // int j = Mathf.RoundToInt((yLength - 1) * Mathf.Clamp01(((size.y)/2 + location.y) / size.y));
+        int i = Mathf.RoundToInt((xLength - 1) * Mathf.Clamp01(((size.x)/2 + location.x - bounds.center.x) / size.x));
+        int j = Mathf.RoundToInt((yLength - 1) * Mathf.Clamp01(((size.y)/2 + location.y - bounds.center.y) / size.y));
 
         return gridMap[i,j];
     }
