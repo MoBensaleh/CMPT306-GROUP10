@@ -49,4 +49,8 @@ public class State : IState<State>
         checkValue = -checkValue;
         return checkValue;
     }
+
+    public void changeBlocked(bool myUnblocked) {
+        unblocked = myUnblocked;
+    }
 }

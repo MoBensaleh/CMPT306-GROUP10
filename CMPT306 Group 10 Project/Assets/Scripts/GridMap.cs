@@ -1,16 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class GridMap : MonoBehaviour
 {
     public bool ShowGrid;
     public LayerMask blockedLayer;
-    public Vector2 size;
+    Vector2 size;
     int xLength, yLength;
     float sectionDiameter;
     public float sectionRadius;
     State[,] gridMap;
+    DungeonGenerator dungeonGenerator;
+    int xStart, xEnd, yStart, yEnd;
+    BoundsInt bounds;
     public int LargestSize {
         get {
             return xLength*yLength;
@@ -20,25 +24,59 @@ public class GridMap : MonoBehaviour
     }
 
     void Awake() {
+        dungeonGenerator = GetComponent<DungeonGenerator>();
+        // updateGridMap();
+    }
+
+    public void updateGridMap() {
+        Tilemap tileMap = dungeonGenerator.getPitMap();
+        bounds = tileMap.cellBounds;
+        size = new Vector2(bounds.xMax - bounds.xMin, bounds.yMax - bounds.yMin);
+
         sectionDiameter = 2 * sectionRadius;
         xLength = Mathf.RoundToInt(size.x/sectionDiameter);
         yLength = Mathf.RoundToInt(size.y/sectionDiameter);
 
         gridMap = new State[xLength, yLength];
-        Vector3 leftCorner = transform.position - (size.y)/2 * Vector3.up - (size.x)/2 * Vector3.right;
+        // Vector2 transform2D = new Vector2(transform.position.x, transform.position.y);
+        Vector3 transformAdjusted = new Vector3(bounds.center.x, bounds.center.y, 0);
+        Vector3 leftCorner = transformAdjusted - (size.y)/2 * Vector3.up - (size.x)/2 * Vector3.right;
             
         for (int i = 0; i < xLength; i++) {
             for (int j = 0; j < yLength; j++) {
                 Vector3 location = leftCorner + Vector3.up * (sectionRadius + j * sectionDiameter) + Vector3.right * (sectionRadius + i * sectionDiameter);
-                bool unblocked = !(Physics.CheckSphere(location, sectionRadius, blockedLayer));
+                // bool unblocked = !(Physics2D.OverlapCircle(location, sectionRadius, blockedLayer));
+                bool unblocked = !(checkBlocked(location));
                 gridMap[i,j] = new State(unblocked, location, i, j);
             }
         }
     }
 
+    public bool checkBlocked(Vector3 location) {
+        Vector3Int pos = new Vector3Int(Mathf.FloorToInt(location.x), Mathf.FloorToInt(location.y), 0);
+
+        Tilemap pitmap = dungeonGenerator.getPitMap();
+        // Tilemap wallmap = dungeonGenerator.getWallMap();
+        Tilemap groundmap = dungeonGenerator.getGroundMap();
+
+        Tile pitTile = dungeonGenerator.getPitTile();
+        // Tile topWallTile = dungeonGenerator.getTopWallTile();
+        // Tile botWallTile = dungeonGenerator.getBotWallTile();
+        Tile groundTile = dungeonGenerator.getGroundTile();
+
+        if (pitmap.GetTile(pos) == pitTile && groundmap.GetTile(pos) != groundTile) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
     public State RetrieveState(Vector3 location) {
-        int i = Mathf.RoundToInt((xLength - 1) * Mathf.Clamp01(((size.x)/2 + location.x) / size.x));
-        int j = Mathf.RoundToInt((yLength - 1) * Mathf.Clamp01(((size.y)/2 + location.y) / size.y));
+        // int i = Mathf.RoundToInt((xLength - 1) * Mathf.Clamp01(((size.x)/2 + location.x) / size.x));
+        // int j = Mathf.RoundToInt((yLength - 1) * Mathf.Clamp01(((size.y)/2 + location.y) / size.y));
+        int i = Mathf.RoundToInt((xLength - 1) * Mathf.Clamp01(((size.x)/2 + location.x - bounds.center.x) / size.x));
+        int j = Mathf.RoundToInt((yLength - 1) * Mathf.Clamp01(((size.y)/2 + location.y - bounds.center.y) / size.y));
 
         return gridMap[i,j];
     }
@@ -63,7 +101,7 @@ public class GridMap : MonoBehaviour
         if (ShowGrid && gridMap != null) {
             foreach (State s in gridMap) {
                 if (s.unblocked) Gizmos.color = Color.white;
-                else Gizmos.color = Color.black;
+                else Gizmos.color = Color.red;
                 Gizmos.DrawCube(s.location, (sectionDiameter - 0.1f) * Vector3.one);
             }
         }
