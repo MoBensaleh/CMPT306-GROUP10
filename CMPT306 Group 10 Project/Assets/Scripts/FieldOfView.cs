@@ -1,6 +1,7 @@
 ﻿
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.EventSystems;
 using UnityEngine;
 
 public class FieldOfView : MonoBehaviour {
@@ -52,7 +53,7 @@ public class FieldOfView : MonoBehaviour {
             RaycastHit2D raycastHit2D = Physics2D.Raycast(origin, GetVectorFromAngle(angle), viewDistance, layerMask);
 
             if (raycastHit2D.collider != null) vertex = raycastHit2D.point;
-
+            
             else vertex = origin + GetVectorFromAngle(angle) * viewDistance;
 
             vertices[vertexIndex] = vertex;
@@ -67,6 +68,7 @@ public class FieldOfView : MonoBehaviour {
 
             vertexIndex++;
             angle -= angleIncrease;
+
         }
 
 
