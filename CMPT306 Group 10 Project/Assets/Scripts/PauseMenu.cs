@@ -46,7 +46,9 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void QuitGame() {
-        Debug.Log("hi");
+        //Doesn't Work in unity editor
+        Application.Quit();
+        Debug.Log("QUIT");
     }
 
     public void SwitchPanels()
