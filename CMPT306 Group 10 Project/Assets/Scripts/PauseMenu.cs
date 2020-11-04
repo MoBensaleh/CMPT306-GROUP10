@@ -7,6 +7,16 @@ public class PauseMenu : MonoBehaviour
     
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
+    public GameObject inventoryPanel;
+    public bool usingPausePanel;
+
+    private void Start()
+    {
+        GameIsPaused = false;
+        pauseMenuUI.SetActive(false);
+        inventoryPanel.SetActive(false);
+        usingPausePanel = false;
+    }
 
 
     // Update is called once per frame
@@ -22,6 +32,7 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void Resume(){
+        inventoryPanel.SetActive(false);
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
@@ -31,9 +42,28 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+        usingPausePanel = true;
     }
 
     public void QuitGame() {
-        Debug.Log("hi");
+        //Doesn't Work in unity editor
+        Application.Quit();
+        Debug.Log("QUIT");
+    }
+
+    public void SwitchPanels()
+    {
+        usingPausePanel = !usingPausePanel;
+        if (usingPausePanel)
+        {
+            pauseMenuUI.SetActive(true);
+            inventoryPanel.SetActive(false);
+        }
+        else
+        {
+            inventoryPanel.SetActive(true);
+            pauseMenuUI.SetActive(false);
+        }
+
     }
 }

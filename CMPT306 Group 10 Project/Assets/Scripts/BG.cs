@@ -10,7 +10,6 @@ public class BG : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Follows Camera
         transform.position = new Vector3(camPos.position.x, camPos.position.y, transform.position.z);
     }
 }

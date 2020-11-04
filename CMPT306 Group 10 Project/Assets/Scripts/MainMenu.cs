@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
 
    public void QuitGame() {
        //Doesn't Work in unity editor
-       //Application.Quit();
+       Application.Quit();
        Debug.Log("QUIT");
    }
 }

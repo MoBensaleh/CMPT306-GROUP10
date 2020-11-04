@@ -1,8 +1,4 @@
-﻿
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.EventSystems;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FieldOfView : MonoBehaviour {
 
@@ -70,6 +66,7 @@ public class FieldOfView : MonoBehaviour {
             angle -= angleIncrease;
 
         }
+
 
         mesh.vertices = vertices;
         mesh.uv = uv;

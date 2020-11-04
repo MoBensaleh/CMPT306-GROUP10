@@ -56,7 +56,7 @@ public class GridMap : MonoBehaviour
         Vector3Int pos = new Vector3Int(Mathf.FloorToInt(location.x), Mathf.FloorToInt(location.y), 0);
 
         Tilemap pitmap = dungeonGenerator.getPitMap();
-        // Tilemap wallmap = dungeonGenerator.getWallMap();
+        Tilemap wallmap = dungeonGenerator.getWallMap();
         Tilemap groundmap = dungeonGenerator.getGroundMap();
 
         Tile pitTile = dungeonGenerator.getPitTile();
@@ -65,7 +65,8 @@ public class GridMap : MonoBehaviour
         Tile groundTile = dungeonGenerator.getGroundTile();
 
         if (pitmap.GetTile(pos) == pitTile && groundmap.GetTile(pos) != groundTile) {
-            return true;
+                        if (pitmap.GetTile(pos) == groundTile || wallmap.GetTile(pos) == groundTile) return false;
+            else return true;
         } else {
             return false;
         }
