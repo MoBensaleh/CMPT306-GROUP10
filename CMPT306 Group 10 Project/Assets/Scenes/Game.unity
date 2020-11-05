@@ -108336,7 +108336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goal: {fileID: 316176848}
-  speed: 3
+  speed: 2
   timeBreak: 0
 --- !u!61 &1429426562
 BoxCollider2D:
