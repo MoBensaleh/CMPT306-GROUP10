@@ -1437,7 +1437,7 @@ MonoBehaviour:
   groundMap: {fileID: 969271362}
   pitMap: {fileID: 574512743}
   wallMap: {fileID: 33383533}
-  player: {fileID: 0}
+  player: {fileID: 316176842}
   deviationRate: 10
   roomRate: 15
   maxRouteLength: 100
