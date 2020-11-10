@@ -46,9 +46,9 @@ public class PauseMenu : MonoBehaviour
         usingPausePanel = true;
     }
 
-    public void QuitGame() {
+    public void QuitToMenu() {
         //Doesn't Work in unity editor
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene("Menu");
     }
 
     public void SwitchPanels()
