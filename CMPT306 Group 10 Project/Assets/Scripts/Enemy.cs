@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
         stunned = false;
     }
 
-    void Update() {
+    void FixedUpdate() {
         timeCheck += Time.deltaTime;
         if (Mathf.RoundToInt(freezeTime) > 0 && stunned) {
             freezeTime -= Time.deltaTime;
@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
             freezeTime = 0;
             stunned = false;
             searchRunning = true;
-            ResetSearch();
+            // ResetSearch();
             goalLocation = goal.position;
             SearchHandler.RequestSearch(transform.position,goalLocation, searchFinished);
             timeCheck = 0;
@@ -81,7 +81,7 @@ public class Enemy : MonoBehaviour
                     searchIndex += 1;
                     if (pathToGoal.Length <= searchIndex) {
                         ResetSearch();
-                        yield break;
+                        break;
                     }
                     presentIntermediate = pathToGoal[searchIndex];
                 }
@@ -89,12 +89,12 @@ public class Enemy : MonoBehaviour
                 transform.position = Vector3.MoveTowards(transform.position,presentIntermediate,speed * (Time.deltaTime) );
                 if (CheckGoalPosition()) {
                     ResetSearch();
-                    yield break;
-                }
+                    break;
+                } 
                 yield return null;
 
             }
-        } else yield break;
+        } 
 	}
 
 	public void OnDrawGizmos() {
