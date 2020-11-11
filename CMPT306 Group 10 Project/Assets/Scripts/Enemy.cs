@@ -7,21 +7,31 @@ public class Enemy : MonoBehaviour
     Material material;
 	public Transform goal;
     Vector3 goalLocation;
-	public float speed = 3;
+	public float speed = 1f;
 	Vector3[] pathToGoal;
     bool searchRunning = false;
+    bool followingInProgress = false;
 	int searchIndex;
-    public int timeBreak = 1;
+    public int timeBreak = 0;
     float timeCheck;
+    float freezeTime;
+    bool stunned;
 
     void Start() {
         material = GetComponent<Renderer>().material;
         timeCheck = timeBreak;
+        freezeTime = 0;
+        stunned = false;
     }
 
     void Update() {
         timeCheck += Time.deltaTime;
-        if (Mathf.RoundToInt(timeCheck) >= timeBreak && !searchRunning && CheckGoalPosition()){
+        if (Mathf.RoundToInt(freezeTime) > 0 && stunned) {
+            freezeTime -= Time.deltaTime;
+        }
+        else if (Mathf.RoundToInt(timeCheck) >= timeBreak && !searchRunning && CheckGoalPosition()){
+            freezeTime = 0;
+            stunned = false;
             searchRunning = true;
             ResetSearch();
             goalLocation = goal.position;
@@ -29,6 +39,17 @@ public class Enemy : MonoBehaviour
             timeCheck = 0;
         }
 	}
+
+    public void StunEnemy(int time) {
+        freezeTime += time;
+        stunned = true;
+
+        if (searchRunning) {
+            searchRunning = false;
+            StopCoroutine(FollowSearch());
+            ResetSearch();
+            }
+    }
 
     public bool CheckGoalPosition() {
         return goal.position != goalLocation;
@@ -55,7 +76,7 @@ public class Enemy : MonoBehaviour
 	IEnumerator FollowSearch() {
         if (0 < pathToGoal.Length) {            
             Vector3 presentIntermediate = pathToGoal[0];
-            while (true) {
+            while (!stunned) {
                 if (presentIntermediate == transform.position) {
                     searchIndex += 1;
                     if (pathToGoal.Length <= searchIndex) {
@@ -65,7 +86,7 @@ public class Enemy : MonoBehaviour
                     presentIntermediate = pathToGoal[searchIndex];
                 }
 
-                transform.position = Vector3.MoveTowards(transform.position,presentIntermediate,speed * (Time.deltaTime));
+                transform.position = Vector3.MoveTowards(transform.position,presentIntermediate,speed * (Time.deltaTime) );
                 if (CheckGoalPosition()) {
                     ResetSearch();
                     yield break;
