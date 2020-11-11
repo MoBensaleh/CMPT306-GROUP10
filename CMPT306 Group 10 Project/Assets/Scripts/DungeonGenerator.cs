@@ -30,7 +30,6 @@ public class DungeonGenerator : MonoBehaviour
     private int maxRouteLength;
     [SerializeField]
     private int maxRoutes = 20;
-     public GameObject[] myObjects;
 
 
     private int routeCount = 0;
@@ -53,7 +52,6 @@ public class DungeonGenerator : MonoBehaviour
     private void Start() {
         GridMap gridMap = GetComponent<GridMap>();
         gridMap.updateGridMap();
-        
     }
 
     private void FillWalls()
@@ -108,20 +106,12 @@ public class DungeonGenerator : MonoBehaviour
                     {
                         GenerateSquare(previousPos.x + xOffset, previousPos.y + yOffset, roomSize);
                         NewRoute(previousPos.x + xOffset, previousPos.y + yOffset, Random.Range(routeLength, maxRouteLength), previousPos);
-                        int randomIndex = Random.Range(0, myObjects.Length);
-
-
-                        GameObject instantiatedObject = Instantiate(myObjects[randomIndex], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
                     }
                     else
                     {
                         x = previousPos.x + xOffset;
                         y = previousPos.y + yOffset;
                         GenerateSquare(x, y, roomSize);
-                        int randomIndex = Random.Range(0, myObjects.Length);
-
-
-                        GameObject instantiatedObject = Instantiate(myObjects[randomIndex], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
                         routeUsed = true;
                     }
                 }
@@ -133,20 +123,12 @@ public class DungeonGenerator : MonoBehaviour
                     {
                         GenerateSquare(previousPos.x - yOffset, previousPos.y + xOffset, roomSize);
                         NewRoute(previousPos.x - yOffset, previousPos.y + xOffset, Random.Range(routeLength, maxRouteLength), previousPos);
-                        int randomIndex = Random.Range(0, myObjects.Length);
-
-
-                        GameObject instantiatedObject = Instantiate(myObjects[randomIndex], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
                     }
                     else
                     {
                         y = previousPos.y + xOffset;
                         x = previousPos.x - yOffset;
                         GenerateSquare(x, y, roomSize);
-                        int randomIndex = Random.Range(0, myObjects.Length);
-
-
-                        GameObject instantiatedObject = Instantiate(myObjects[randomIndex], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
                         routeUsed = true;
                     }
                 }
@@ -157,20 +139,12 @@ public class DungeonGenerator : MonoBehaviour
                     {
                         GenerateSquare(previousPos.x + yOffset, previousPos.y - xOffset, roomSize);
                         NewRoute(previousPos.x + yOffset, previousPos.y - xOffset, Random.Range(routeLength, maxRouteLength), previousPos);
-                        int randomIndex = Random.Range(0, myObjects.Length);
-
-
-                        GameObject instantiatedObject = Instantiate(myObjects[randomIndex], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
                     }
                     else
                     {
                         y = previousPos.y - xOffset;
                         x = previousPos.x + yOffset;
                         GenerateSquare(x, y, roomSize);
-                        int randomIndex = Random.Range(0, myObjects.Length);
-
-
-                        GameObject instantiatedObject = Instantiate(myObjects[randomIndex], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
                         routeUsed = true;
                     }
                 }
@@ -180,7 +154,6 @@ public class DungeonGenerator : MonoBehaviour
                     x = previousPos.x + xOffset;
                     y = previousPos.y + yOffset;
                     GenerateSquare(x, y, roomSize);
-                   
                 }
             }
         }
@@ -194,7 +167,6 @@ public class DungeonGenerator : MonoBehaviour
             {
                 Vector3Int tilePos = new Vector3Int(tileX, tileY, 0);
                 groundMap.SetTile(tilePos, groundTile);
-
             }
         }
     }
