@@ -14,5 +14,9 @@ public class KeyDoor : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    public void CloseDoor() {
+        gameObject.SetActive(true);
+    }
+
 
 }

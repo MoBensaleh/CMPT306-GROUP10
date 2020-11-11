@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -45,10 +46,12 @@ public class PauseMenu : MonoBehaviour
         usingPausePanel = true;
     }
 
-    public void QuitGame() {
-        //Doesn't Work in unity editor
-        Application.Quit();
-        Debug.Log("QUIT");
+    public void QuitToMenu() {
+        inventoryPanel.SetActive(false);
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        GameIsPaused = false;
+        SceneManager.LoadScene("Menu");
     }
 
     public void SwitchPanels()
