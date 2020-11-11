@@ -86,7 +86,7 @@ public class Enemy : MonoBehaviour
                     presentIntermediate = pathToGoal[searchIndex];
                 }
 
-                transform.position = Vector3.MoveTowards(transform.position,presentIntermediate,speed * (Time.deltaTime) );
+                transform.position = Vector3.MoveTowards(transform.position,presentIntermediate,speed / 4 * (Time.deltaTime) );
                 if (CheckGoalPosition()) {
                     ResetSearch();
                     break;
