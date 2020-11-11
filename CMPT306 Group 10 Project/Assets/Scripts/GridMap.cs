@@ -63,9 +63,10 @@ public class GridMap : MonoBehaviour
         // Tile topWallTile = dungeonGenerator.getTopWallTile();
         // Tile botWallTile = dungeonGenerator.getBotWallTile();
         Tile groundTile = dungeonGenerator.getGroundTile();
+        Tile secondGroundTile = dungeonGenerator.getSecondGroundTile();
 
         if (pitmap.GetTile(pos) == pitTile && groundmap.GetTile(pos) != groundTile) {
-                        if (pitmap.GetTile(pos) == groundTile || wallmap.GetTile(pos) == groundTile) return false;
+            if (groundmap.GetTile(pos) == secondGroundTile || pitmap.GetTile(pos) == groundTile || wallmap.GetTile(pos) == groundTile) return false;
             else return true;
         } else {
             return false;

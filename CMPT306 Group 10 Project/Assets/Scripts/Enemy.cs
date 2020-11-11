@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Enemy : MonoBehaviour
 {
@@ -16,12 +17,21 @@ public class Enemy : MonoBehaviour
     float timeCheck;
     float freezeTime;
     bool stunned;
+    GameObject grid;
+    Tilemap groundMap;
+    Tile groundTile;
+    Tile secondGroundTile;
 
     void Start() {
         material = GetComponent<Renderer>().material;
         timeCheck = timeBreak;
         freezeTime = 0;
         stunned = false;
+
+        grid = GameObject.Find("Grid");
+        groundMap = grid.GetComponent<DungeonGenerator>().getGroundMap();
+        groundTile = grid.GetComponent<DungeonGenerator>().getGroundTile();
+        secondGroundTile = grid.GetComponent<DungeonGenerator>().getSecondGroundTile(); 
     }
 
     void FixedUpdate() {
@@ -86,7 +96,10 @@ public class Enemy : MonoBehaviour
                     presentIntermediate = pathToGoal[searchIndex];
                 }
 
-                transform.position = Vector3.MoveTowards(transform.position,presentIntermediate,speed / 4 * (Time.deltaTime) );
+                int tileCost = 4;
+                Vector3Int pos = new Vector3Int(Mathf.FloorToInt(transform.position.x), Mathf.FloorToInt(transform.position.y), 0);
+                if (groundMap.GetTile(pos) == secondGroundTile) tileCost *= 2;
+                transform.position = Vector3.MoveTowards(transform.position,presentIntermediate,speed / tileCost * (Time.deltaTime) );
                 if (CheckGoalPosition()) {
                     ResetSearch();
                     break;

@@ -9,6 +9,8 @@ public class DungeonGenerator : MonoBehaviour
     [SerializeField]
     private Tile groundTile;
     [SerializeField]
+    private Tile secondGroundTile;
+    [SerializeField]
     private Tile pitTile;
     [SerializeField]
     private Tile topWallTile;
@@ -191,7 +193,9 @@ public class DungeonGenerator : MonoBehaviour
             for (int tileY = y - radius; tileY <= y + radius; tileY++)
             {
                 Vector3Int tilePos = new Vector3Int(tileX, tileY, 0);
-                groundMap.SetTile(tilePos, groundTile);
+                int num = Random.Range(1, 100);
+                if (num < 5) groundMap.SetTile(tilePos, secondGroundTile);
+                else groundMap.SetTile(tilePos, groundTile);
             }
         }
     }
@@ -214,6 +218,10 @@ public class DungeonGenerator : MonoBehaviour
 
     public Tile getGroundTile() {
         return this.groundTile;
+    }
+
+    public Tile getSecondGroundTile() {
+        return this.secondGroundTile;
     }
 
     public Tile getTopWallTile() {
