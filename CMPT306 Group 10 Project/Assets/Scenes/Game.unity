@@ -1548,6 +1548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundTile: {fileID: 11400000, guid: a5a277ac637e24178ad610dd2fc06699, type: 2}
+  secondGroundTile: {fileID: 11400000, guid: d0db5a71423aa472098265aff17a633b, type: 2}
   pitTile: {fileID: 11400000, guid: 4e83a472a53ee45858d7955cb859aef9, type: 2}
   topWallTile: {fileID: 11400000, guid: 4e83a472a53ee45858d7955cb859aef9, type: 2}
   botWallTile: {fileID: 11400000, guid: 4e83a472a53ee45858d7955cb859aef9, type: 2}
@@ -1606,7 +1607,7 @@ MonoBehaviour:
   blockedLayer:
     serializedVersion: 2
     m_Bits: 256
-  sectionRadius: 0.25
+  sectionRadius: 0.5
 --- !u!1 &384600546
 GameObject:
   m_ObjectHideFlags: 0
