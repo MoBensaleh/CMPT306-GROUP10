@@ -29,5 +29,11 @@ public class InventoryItem : ScriptableObject
             numberHeld = 0;
         }
     }
+
+    public void StunEnemy(int seconds) {
+        Debug.Log("stun");
+        GameObject enemy = GameObject.Find("Enemy");
+        enemy.GetComponent<Enemy>().StunEnemy(seconds);
+    }
 }
 

@@ -58,10 +58,10 @@ public class AStarSearch : MonoBehaviour
                             yWeight = Mathf.Abs(s.yCoordinate - goal.yCoordinate);
                             xWeight = Mathf.Abs(s.xCoordinate - goal.xCoordinate);
                             if (xWeight < yWeight) {
-                                s.hOfN =  10 * (yWeight-xWeight) + 14 * xWeight;
+                                s.hOfN =  (10 * (yWeight-xWeight) + 14 * xWeight) * s.cost;
                             }
                             else {
-                                s.hOfN =  10 * (xWeight-yWeight) + 14 * yWeight;
+                                s.hOfN =  (10 * (xWeight-yWeight) + 14 * yWeight) * s.cost;
                             }
                 
                             if (!openSet.Contains(s))

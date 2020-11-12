@@ -1,34 +1,65 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Enemy : MonoBehaviour
 {
     Material material;
 	public Transform goal;
     Vector3 goalLocation;
-	public float speed = 3;
+	public float speed = 1f;
 	Vector3[] pathToGoal;
     bool searchRunning = false;
+    bool followingInProgress = false;
 	int searchIndex;
-    public int timeBreak = 1;
+    public int timeBreak = 0;
     float timeCheck;
+    float freezeTime;
+    bool stunned;
+    GameObject grid;
+    Tilemap groundMap;
+    Tile groundTile;
+    Tile secondGroundTile;
 
     void Start() {
         material = GetComponent<Renderer>().material;
         timeCheck = timeBreak;
+        freezeTime = 0;
+        stunned = false;
+
+        grid = GameObject.Find("Grid");
+        groundMap = grid.GetComponent<DungeonGenerator>().getGroundMap();
+        groundTile = grid.GetComponent<DungeonGenerator>().getGroundTile();
+        secondGroundTile = grid.GetComponent<DungeonGenerator>().getSecondGroundTile(); 
     }
 
-    void Update() {
+    void FixedUpdate() {
         timeCheck += Time.deltaTime;
-        if (Mathf.RoundToInt(timeCheck) >= timeBreak && !searchRunning && CheckGoalPosition()){
+        if (Mathf.RoundToInt(freezeTime) > 0 && stunned) {
+            freezeTime -= Time.deltaTime;
+        }
+        else if (Mathf.RoundToInt(timeCheck) >= timeBreak && !searchRunning && CheckGoalPosition()){
+            freezeTime = 0;
+            stunned = false;
             searchRunning = true;
-            ResetSearch();
+            // ResetSearch();
             goalLocation = goal.position;
             SearchHandler.RequestSearch(transform.position,goalLocation, searchFinished);
             timeCheck = 0;
         }
 	}
+
+    public void StunEnemy(int time) {
+        freezeTime += time;
+        stunned = true;
+
+        if (searchRunning) {
+            searchRunning = false;
+            StopCoroutine(FollowSearch());
+            ResetSearch();
+            }
+    }
 
     public bool CheckGoalPosition() {
         return goal.position != goalLocation;
@@ -55,25 +86,28 @@ public class Enemy : MonoBehaviour
 	IEnumerator FollowSearch() {
         if (0 < pathToGoal.Length) {            
             Vector3 presentIntermediate = pathToGoal[0];
-            while (true) {
+            while (!stunned) {
                 if (presentIntermediate == transform.position) {
                     searchIndex += 1;
                     if (pathToGoal.Length <= searchIndex) {
                         ResetSearch();
-                        yield break;
+                        break;
                     }
                     presentIntermediate = pathToGoal[searchIndex];
                 }
 
-                transform.position = Vector3.MoveTowards(transform.position,presentIntermediate,speed * (Time.deltaTime));
+                int tileCost = 4;
+                Vector3Int pos = new Vector3Int(Mathf.FloorToInt(transform.position.x), Mathf.FloorToInt(transform.position.y), 0);
+                if (groundMap.GetTile(pos) == secondGroundTile) tileCost *= 2;
+                transform.position = Vector3.MoveTowards(transform.position,presentIntermediate,speed / tileCost * (Time.deltaTime) );
                 if (CheckGoalPosition()) {
                     ResetSearch();
-                    yield break;
-                }
+                    break;
+                } 
                 yield return null;
 
             }
-        } else yield break;
+        } 
 	}
 
 	public void OnDrawGizmos() {

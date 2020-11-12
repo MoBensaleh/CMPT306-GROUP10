@@ -50,6 +50,61 @@ public class GridMap : MonoBehaviour
                 gridMap[i,j] = new State(unblocked, location, i, j);
             }
         }
+
+        for (int i = 0; i < xLength; i++) {
+            for (int j = 0; j < yLength; j++) {
+                Vector3 location = leftCorner + Vector3.up * (sectionRadius + j * sectionDiameter) + Vector3.right * (sectionRadius + i * sectionDiameter);
+                
+                if ((i - 1) >= 0) {
+                    if (gridMap[i-1,j].isBlocked()) {
+                        gridMap[i,j].setTerminus(true);
+                        continue;
+                    }
+                }
+                if ((i + 1) < xLength) {
+                    if (gridMap[i+1,j].isBlocked()) {
+                        gridMap[i,j].setTerminus(true);
+                        continue;
+                    }
+                }
+                if ((j - 1) >= 0) {
+                    if (gridMap[i,j-1].isBlocked()) {
+                        gridMap[i,j].setTerminus(true);
+                        continue;
+                    }
+                }
+                if ((j + 1) < yLength) {
+                    if (gridMap[i,j+1].isBlocked()) {
+                        gridMap[i,j].setTerminus(true);
+                        continue;
+                    }
+                }
+                if (((i - 1) >= 0) && ((j - 1) >= 0)) {
+                    if (gridMap[i-1,j-1].isBlocked()) {
+                        gridMap[i,j].setTerminus(true);
+                        continue;
+                    }
+                }
+                if (((i - 1) >= 0) && ((j + 1) < yLength)) {
+                    if (gridMap[i-1,j+1].isBlocked()) {
+                        gridMap[i,j].setTerminus(true);
+                        continue;
+                    }
+                }
+                if (((i + 1) < xLength) && ((j - 1) >= 0)) {
+                    if (gridMap[i+1,j-1].isBlocked()) {
+                        gridMap[i,j].setTerminus(true);
+                        continue;
+                    }
+                }
+                if (((i + 1) < xLength) && ((j + 1) < yLength)) {
+                    if (gridMap[i+1,j+1].isBlocked()) {
+                        gridMap[i,j].setTerminus(true);
+                        continue;
+                    }
+                }
+            }
+        }
     }
 
     public bool checkBlocked(Vector3 location) {
@@ -63,9 +118,10 @@ public class GridMap : MonoBehaviour
         // Tile topWallTile = dungeonGenerator.getTopWallTile();
         // Tile botWallTile = dungeonGenerator.getBotWallTile();
         Tile groundTile = dungeonGenerator.getGroundTile();
+        Tile secondGroundTile = dungeonGenerator.getSecondGroundTile();
 
         if (pitmap.GetTile(pos) == pitTile && groundmap.GetTile(pos) != groundTile) {
-                        if (pitmap.GetTile(pos) == groundTile || wallmap.GetTile(pos) == groundTile) return false;
+            if (groundmap.GetTile(pos) == secondGroundTile || pitmap.GetTile(pos) == groundTile || wallmap.GetTile(pos) == groundTile) return false;
             else return true;
         } else {
             return false;
@@ -101,8 +157,9 @@ public class GridMap : MonoBehaviour
         Gizmos.DrawWireCube(transform.position, new Vector3(size.x, size.y, 1));
         if (ShowGrid && gridMap != null) {
             foreach (State s in gridMap) {
-                if (s.unblocked) Gizmos.color = Color.white;
-                else Gizmos.color = Color.red;
+                if (!s.unblocked) Gizmos.color = Color.red;
+                else if (s.terminus) Gizmos.color = Color.cyan;
+                else if (s.unblocked) Gizmos.color = Color.white;
                 Gizmos.DrawCube(s.location, (sectionDiameter - 0.1f) * Vector3.one);
             }
         }
