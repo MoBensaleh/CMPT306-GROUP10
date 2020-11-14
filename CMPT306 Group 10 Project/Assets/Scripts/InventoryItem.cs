@@ -36,6 +36,11 @@ public class InventoryItem : ScriptableObject
         GameObject enemy = GameObject.Find("Enemy");
         enemy.GetComponent<Enemy>().StunEnemy(seconds);
     }
+
+    public void SpawnCandle(GameObject candle)
+    {
+        Instantiate(candle, GameObject.FindWithTag("Player").transform.position, Quaternion.identity);
+    }
  
 }
 
