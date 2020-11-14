@@ -15,6 +15,7 @@ public class InventoryItem : ScriptableObject
     public bool unique;
     public UnityEvent thisEvent;
 
+
     public void Use()
     {
         
@@ -35,5 +36,7 @@ public class InventoryItem : ScriptableObject
         GameObject enemy = GameObject.Find("Enemy");
         enemy.GetComponent<Enemy>().StunEnemy(seconds);
     }
+ 
 }
+
 

@@ -6,6 +6,7 @@ public class Throw : MonoBehaviour
 {
     public Transform throwOrigin;
     public GameObject crossPrefab;
+    public InventoryItem item;
 
     public float throwForce = 20f;
 
@@ -16,13 +17,23 @@ public class Throw : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             ThrowItem();
+            item.numberHeld -= 1;
+            if (item.numberHeld < 0)
+            {
+                item.numberHeld = 0;
+            }
         }
     }
 
     void ThrowItem()
     {
-        GameObject cross = Instantiate(crossPrefab, throwOrigin.position, throwOrigin.rotation);
-        Rigidbody2D rb = cross.GetComponent<Rigidbody2D>();
-        rb.AddForce(throwOrigin.up * throwForce, ForceMode2D.Impulse);
+        if (item.numberHeld > 0)
+        {
+            GameObject cross = Instantiate(crossPrefab, throwOrigin.position, throwOrigin.rotation);
+            Rigidbody2D rb = cross.GetComponent<Rigidbody2D>();
+            rb.AddForce(throwOrigin.up * throwForce, ForceMode2D.Impulse);
+
+        }
+        
     }
 }

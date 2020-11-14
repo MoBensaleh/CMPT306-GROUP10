@@ -1228,6 +1228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwOrigin: {fileID: 1202060207}
   crossPrefab: {fileID: 7085494405169437889, guid: d3785cbdd51d24140911ab5bc2961c12, type: 3}
+  item: {fileID: 0}
   throwForce: 20
 --- !u!1 &316234445
 GameObject:
@@ -1585,6 +1586,10 @@ MonoBehaviour:
   - {fileID: 1804565690}
   - {fileID: 1326619878}
   - {fileID: 317026455}
+  pressurePlateTask:
+  - {fileID: 2485380733294906715, guid: 5ac2d1d917eb543cab89fcb0234524d0, type: 3}
+  - {fileID: 1057355637163634568, guid: 9a40a0b4d159d46dc9c1891fa8a17615, type: 3}
+  maxTaskItems: 2
 --- !u!114 &317067160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105549,7 +105554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInventory: {fileID: 11400000, guid: a769ea2b854f94d698c9dae617f282b7, type: 2}
-  thisItem: {fileID: 11400000, guid: c3c2e9c6adeb64e33854cb3df5c98127, type: 2}
+  thisItem: {fileID: 0}
 --- !u!61 &656014557
 BoxCollider2D:
   m_ObjectHideFlags: 0
