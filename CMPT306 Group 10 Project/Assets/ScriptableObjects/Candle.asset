@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Candle
   itemDescription: Set it down and light up the area around you for a limited time
-  itemImage: {fileID: -5468486851938975012, guid: 6fa1f2704576b41a9849ef2071c5b43a, type: 3}
-  numberHeld: 0
+  itemImage: {fileID: 4622006203705017954, guid: d3a32a21b475e46ea9a8fea66c7b7e82, type: 3}
+  numberHeld: 1
   usable: 1
   unique: 0
   thisEvent:
