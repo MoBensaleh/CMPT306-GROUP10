@@ -89,8 +89,6 @@ public class InventoryManager : MonoBehaviour
                 SetTextAndButton("", false);
 
             }
-            
-
 
         }
     }

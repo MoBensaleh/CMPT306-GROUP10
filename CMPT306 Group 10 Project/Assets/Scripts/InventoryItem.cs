@@ -7,6 +7,7 @@ using UnityEngine.Events;
 
 public class InventoryItem : ScriptableObject
 {
+    public Transform player;
     public string itemName;
     public string itemDescription;
     public Sprite itemImage;
@@ -28,6 +29,18 @@ public class InventoryItem : ScriptableObject
         {
             numberHeld = 0;
         }
+    }
+
+    public void SpawnCandle(GameObject candle)
+    {
+        Instantiate(candle, player.position, player.rotation);
+    }
+
+
+    public void ExtendVision(Delay delayScript)
+    {
+        delayScript.Start();
+        
     }
 }
 
