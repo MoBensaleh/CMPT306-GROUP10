@@ -14,6 +14,7 @@ public class InventoryItem : ScriptableObject
     public bool usable;
     public bool unique;
     public UnityEvent thisEvent;
+    private Delay delay;
 
 
     public void Use()
@@ -41,7 +42,15 @@ public class InventoryItem : ScriptableObject
     {
         Instantiate(candle, GameObject.FindWithTag("Player").transform.position, Quaternion.identity);
     }
- 
+
+    public void Awakening(FieldOfView fov)
+    {
+        delay.Invoke("ExtendVision", 0f);
+        delay.Invoke("NormalVision", 5f);
+
+    }
+
+
 }
 
 

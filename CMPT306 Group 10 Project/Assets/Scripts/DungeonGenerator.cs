@@ -33,6 +33,9 @@ public class DungeonGenerator : MonoBehaviour
     [SerializeField]
     private int maxRoutes = 20;
     public GameObject[] myObjects;
+    public GameObject enemy;
+    private int numOfEnemies = 0;
+    public int maxEnemies;
     
     public GameObject[] pressurePlateTask;
     private int taskItems = 0;
@@ -139,6 +142,7 @@ public class DungeonGenerator : MonoBehaviour
                         
 
                         NewRoute(previousPos.x + xOffset, previousPos.y + yOffset, Random.Range(routeLength, maxRouteLength), previousPos);
+                        
                         int randomIndex = Random.Range(0, myObjects.Length);
 
 
@@ -150,7 +154,8 @@ public class DungeonGenerator : MonoBehaviour
                         x = previousPos.x + xOffset;
                         y = previousPos.y + yOffset;
                         GenerateSquare(x, y, roomSize);
-                        
+
+
                         int randomIndex = Random.Range(0, myObjects.Length);
 
                        
@@ -167,6 +172,8 @@ public class DungeonGenerator : MonoBehaviour
                         GenerateSquare(previousPos.x - yOffset, previousPos.y + xOffset, roomSize);
                        
                         NewRoute(previousPos.x - yOffset, previousPos.y + xOffset, Random.Range(routeLength, maxRouteLength), previousPos);
+
+                        
                         int randomIndex = Random.Range(0, myObjects.Length);
 
 
@@ -177,12 +184,20 @@ public class DungeonGenerator : MonoBehaviour
                         y = previousPos.y + xOffset;
                         x = previousPos.x - yOffset;
                         GenerateSquare(x, y, roomSize);
-                        
-                        
+
                         int randomIndex = Random.Range(0, myObjects.Length);
 
 
                         GameObject instantiatedObject = Instantiate(myObjects[randomIndex], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
+                        if(numOfEnemies < maxEnemies)
+                        {
+                            GameObject instantiatedEnemy = Instantiate(enemy, new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
+                            numOfEnemies++;
+
+                        }
+                        
+
+
                         routeUsed = true;
                     }
                 }
@@ -195,17 +210,9 @@ public class DungeonGenerator : MonoBehaviour
                        
 
                         NewRoute(previousPos.x + yOffset, previousPos.y - xOffset, Random.Range(routeLength, maxRouteLength), previousPos);
-                        while (taskItems < maxTaskItems)
-                        {
-                            GameObject instantiatedBox = Instantiate(pressurePlateTask[0], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
-                            GameObject instantiatedPressurePlate = Instantiate(pressurePlateTask[1], new Vector3(previousPos.x + yOffset, previousPos.y - xOffset), Quaternion.identity) as GameObject;
-                            taskItems++;
-                            xOffset = xOffset + 3;
-                            yOffset = yOffset + 3;
-                        
-
-
-                        }
+                       
+                       
+                                   
                         int randomIndex = Random.Range(0, myObjects.Length);
 
 
@@ -216,6 +223,15 @@ public class DungeonGenerator : MonoBehaviour
                         y = previousPos.y - xOffset;
                         x = previousPos.x + yOffset;
                         GenerateSquare(x, y, roomSize);
+                        if(taskItems < maxTaskItems)
+                        {
+                            GameObject instantiatedBox = Instantiate(pressurePlateTask[0], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
+                            GameObject instantiatedPressurePlate = Instantiate(pressurePlateTask[1], new Vector3(previousPos.x + yOffset, previousPos.y - xOffset), Quaternion.identity) as GameObject;
+                            taskItems++;
+
+                        }
+                        
+
                         int randomIndex = Random.Range(0, myObjects.Length);
 
 
@@ -229,10 +245,10 @@ public class DungeonGenerator : MonoBehaviour
                     x = previousPos.x + xOffset;
                     y = previousPos.y + yOffset;
                     GenerateSquare(x, y, roomSize);
-                    
-                    
 
-                  
+
+
+
                 }
                 
             }
