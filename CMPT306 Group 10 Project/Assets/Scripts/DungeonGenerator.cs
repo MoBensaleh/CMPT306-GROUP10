@@ -201,6 +201,7 @@ public class DungeonGenerator : MonoBehaviour
                         {
                             GameObject instantiatedEnemy = Instantiate(enemy, new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
                             numOfEnemies++;
+                            instantiatedEnemy.name = "Enemy(" + numOfEnemies.ToString() + ")";
 
                         }
                         
@@ -311,5 +312,9 @@ public class DungeonGenerator : MonoBehaviour
 
     public Tile getBotWallTile() {
         return this.botWallTile;
+    }
+
+    public int getMaxEnemies() {
+        return this.maxEnemies;
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 public class Enemy : MonoBehaviour
 {
     Material material;
-	public Transform goal;
+	Transform goal;
     Vector3 goalLocation;
 	public float speed = 1f;
 	Vector3[] pathToGoal;
@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
     Tilemap groundMap;
     Tile groundTile;
     Tile secondGroundTile;
+    Renderer renderer;
 
     void Start() {
         material = GetComponent<Renderer>().material;
@@ -32,6 +33,11 @@ public class Enemy : MonoBehaviour
         groundMap = grid.GetComponent<DungeonGenerator>().getGroundMap();
         groundTile = grid.GetComponent<DungeonGenerator>().getGroundTile();
         secondGroundTile = grid.GetComponent<DungeonGenerator>().getSecondGroundTile(); 
+
+        GameObject player = GameObject.Find("Player");
+        goal = player.GetComponent<Transform>();
+
+        renderer = GetComponent<Renderer>();
     }
 
     void FixedUpdate() {
@@ -97,9 +103,11 @@ public class Enemy : MonoBehaviour
                 }
 
                 int tileCost = 4;
+                int lightCost = 1;
                 Vector3Int pos = new Vector3Int(Mathf.FloorToInt(transform.position.x), Mathf.FloorToInt(transform.position.y), 0);
                 if (groundMap.GetTile(pos) == secondGroundTile) tileCost *= 2;
-                transform.position = Vector3.MoveTowards(transform.position,presentIntermediate,speed / tileCost * (Time.deltaTime) );
+                if (renderer.isVisible) lightCost *= 2;
+                transform.position = Vector3.MoveTowards(transform.position,presentIntermediate,speed * lightCost / tileCost * (Time.deltaTime) );
                 if (CheckGoalPosition()) {
                     ResetSearch();
                     break;
