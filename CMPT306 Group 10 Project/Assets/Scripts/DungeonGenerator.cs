@@ -154,8 +154,7 @@ public class DungeonGenerator : MonoBehaviour
                         x = previousPos.x + xOffset;
                         y = previousPos.y + yOffset;
                         GenerateSquare(x, y, roomSize);
-
-
+                     
                         int randomIndex = Random.Range(0, myObjects.Length);
 
                        
@@ -184,6 +183,15 @@ public class DungeonGenerator : MonoBehaviour
                         y = previousPos.y + xOffset;
                         x = previousPos.x - yOffset;
                         GenerateSquare(x, y, roomSize);
+                        if (taskItems < maxTaskItems)
+                        {
+                            GameObject instantiatedBox = Instantiate(pressurePlateTask[0], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
+                            GameObject instantiatedPressurePlate = Instantiate(pressurePlateTask[1], new Vector3(previousPos.x - yOffset, previousPos.y + xOffset), Quaternion.identity) as GameObject;
+                            taskItems++;
+
+
+                        }
+                        
 
                         int randomIndex = Random.Range(0, myObjects.Length);
 
@@ -228,6 +236,7 @@ public class DungeonGenerator : MonoBehaviour
                             GameObject instantiatedBox = Instantiate(pressurePlateTask[0], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
                             GameObject instantiatedPressurePlate = Instantiate(pressurePlateTask[1], new Vector3(previousPos.x + yOffset, previousPos.y - xOffset), Quaternion.identity) as GameObject;
                             taskItems++;
+
 
                         }
                         
