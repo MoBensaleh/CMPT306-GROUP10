@@ -14,6 +14,8 @@ public class InventoryItem : ScriptableObject
     public bool usable;
     public bool unique;
     public UnityEvent thisEvent;
+    private Delay delay;
+
 
     public void Use()
     {
@@ -29,5 +31,34 @@ public class InventoryItem : ScriptableObject
             numberHeld = 0;
         }
     }
+
+    public void StunEnemy(int seconds) {
+        Debug.Log("stun");
+        GameObject enemy = GameObject.Find("Enemy");
+        enemy.GetComponent<Enemy>().StunEnemy(seconds);
+        
+        GameObject grid = GameObject.Find("Grid");
+        int maxenemies = grid.GetComponent<DungeonGenerator>().getMaxEnemies();
+        for (int i = 1; i < maxenemies + 1; i++) {
+            enemy = GameObject.Find("Enemy(" + i.ToString() + ")");
+            // enemy = GameObject.Find("Enemy(Clone)");
+            enemy.GetComponent<Enemy>().StunEnemy(seconds);
+        }
+    }
+
+    public void SpawnCandle(GameObject candle)
+    {
+        Instantiate(candle, GameObject.FindWithTag("Player").transform.position, Quaternion.identity);
+    }
+
+    public void Awakening(FieldOfView fov)
+    {
+        delay.Invoke("ExtendVision", 0f);
+        delay.Invoke("NormalVision", 5f);
+
+    }
+
+
 }
+
 
