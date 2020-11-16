@@ -1585,6 +1585,8 @@ MonoBehaviour:
   - {fileID: 317026455}
   - {fileID: 1804565690}
   - {fileID: 1694169645}
+  enemy: {fileID: 1159679198705465265, guid: fa2d222053fc647ad89d6e57b38770c7, type: 3}
+  maxEnemies: 3
   pressurePlateTask:
   - {fileID: 2485380733294906715, guid: 5ac2d1d917eb543cab89fcb0234524d0, type: 3}
   - {fileID: 1057355637163634568, guid: 9a40a0b4d159d46dc9c1891fa8a17615, type: 3}
@@ -1765,7 +1767,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00015258789, y: -80.9}
+  m_AnchoredPosition: {x: -0.00012207031, y: -80.899994}
   m_SizeDelta: {x: -790.26843, y: -400.55853}
   m_Pivot: {x: 0.5000002, y: 0.5}
 --- !u!114 &402422328
@@ -1973,7 +1975,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000091552734, y: 212}
+  m_AnchoredPosition: {x: 0.00012207031, y: 212}
   m_SizeDelta: {x: -599.6549, y: -502.04065}
   m_Pivot: {x: 0.49999982, y: 0.5}
 --- !u!114 &456782656
@@ -109815,7 +109817,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50d74badbdf8a4b198c7a311ddab3b0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goal: {fileID: 316176848}
   speed: 5
   timeBreak: 0
 --- !u!61 &1429426562
