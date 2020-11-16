@@ -33,6 +33,8 @@ public class DungeonGenerator : MonoBehaviour
     [SerializeField]
     private int maxRoutes = 20;
     public GameObject[] myObjects;
+
+
     public GameObject enemy;
     private int numOfEnemies = 0;
     public int maxEnemies;
@@ -169,10 +171,10 @@ public class DungeonGenerator : MonoBehaviour
                     if (routeUsed)
                     {
                         GenerateSquare(previousPos.x - yOffset, previousPos.y + xOffset, roomSize);
-                       
+
                         NewRoute(previousPos.x - yOffset, previousPos.y + xOffset, Random.Range(routeLength, maxRouteLength), previousPos);
 
-                        
+
                         int randomIndex = Random.Range(0, myObjects.Length);
 
 
@@ -191,19 +193,34 @@ public class DungeonGenerator : MonoBehaviour
 
 
                         }
-                        
+
 
                         int randomIndex = Random.Range(0, myObjects.Length);
 
 
                         GameObject instantiatedObject = Instantiate(myObjects[randomIndex], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
-                        if(numOfEnemies < maxEnemies)
+                        if (numOfEnemies < maxEnemies)
                         {
-                            GameObject instantiatedEnemy = Instantiate(enemy, new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
-                            numOfEnemies++;
-                            instantiatedEnemy.name = "Enemy(" + numOfEnemies.ToString() + ")";
+                            if (Mathf.Abs(Vector3.Distance(GameObject.FindWithTag("Player").transform.position, enemy.transform.position)) >= 5)
+                            {
+                                GameObject instantiatedEnemy = Instantiate(enemy, new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
+                                if (Mathf.Abs(Vector3.Distance(GameObject.FindWithTag("Player").transform.position, instantiatedEnemy.transform.position)) < 10)
+                                {
+                                    Destroy(instantiatedEnemy);
+                                }
+                                else
+                                {
+                                    numOfEnemies++;
+                                    instantiatedEnemy.name = "Enemy(" + numOfEnemies.ToString() + ")";
+                                }
+                            }
+
 
                         }
+
+                    
+                    
+                    
                         
 
 
@@ -265,6 +282,8 @@ public class DungeonGenerator : MonoBehaviour
             
         }
     }
+
+    
 
     private void GenerateSquare(int x, int y, int radius)
     {
