@@ -6,8 +6,10 @@ public class KeyHolder : MonoBehaviour
 {
     private List<Key.KeyType> keyList;
     public static int amountOfPressurePlatesActivated;
-    [SerializeField] int amountOfKeys;
+    public static int amountOfStatuesActivated;
+    [SerializeField] int amountOfStatues;
     [SerializeField] int amountOfPressurePlates;
+    [SerializeField] int amountOfKeys;
 
     private void Awake() {
         keyList = new List<Key.KeyType>();
@@ -28,6 +30,7 @@ public class KeyHolder : MonoBehaviour
             Debug.Log("All Keys contained");
             return true;
         } else {
+            Debug.Log("Missing keys");
             return false;
         }
     }
@@ -36,6 +39,16 @@ public class KeyHolder : MonoBehaviour
         if (amountOfPressurePlates == amountOfPressurePlatesActivated){
             return true;
         } else {
+            Debug.Log("Missing pressure plates");
+            return false;
+        }
+    }
+
+    public bool allStatuesActivated(){
+        if (amountOfStatues <= amountOfStatuesActivated){
+            return true;
+        } else {
+            Debug.Log("Missing statues");
             return false;
         }
     }
@@ -49,7 +62,7 @@ public class KeyHolder : MonoBehaviour
 
         KeyDoor keyDoor = collider.GetComponent<KeyDoor>();
         if (keyDoor != null){
-            if (ContainsAllKeys() && allPressurePlatesActive()){
+            if (ContainsAllKeys() && allPressurePlatesActive() && allStatuesActivated()){
                 //Opens Door if all keys are obtained
                 keyDoor.OpenDoor();
             }
