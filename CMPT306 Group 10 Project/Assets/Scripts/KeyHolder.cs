@@ -5,6 +5,9 @@ using UnityEngine;
 public class KeyHolder : MonoBehaviour
 {
     private List<Key.KeyType> keyList;
+    public static int amountOfPressurePlatesActivated;
+    [SerializeField] int amountOfKeys;
+    [SerializeField] int amountOfPressurePlates;
 
     private void Awake() {
         keyList = new List<Key.KeyType>();
@@ -20,9 +23,21 @@ public class KeyHolder : MonoBehaviour
         keyList.Remove(keyType);
     }
 
-    public bool ContainsKey(Key.KeyType keyType){
-        Debug.Log("Contains Key: " + keyType);
-        return keyList.Contains(keyType);
+    public bool ContainsAllKeys(){
+        if (keyList.Count == amountOfKeys) {
+            Debug.Log("All Keys contained");
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public bool allPressurePlatesActive(){
+        if (amountOfPressurePlates == amountOfPressurePlatesActivated){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
@@ -34,9 +49,8 @@ public class KeyHolder : MonoBehaviour
 
         KeyDoor keyDoor = collider.GetComponent<KeyDoor>();
         if (keyDoor != null){
-            if (ContainsKey(keyDoor.GetKeyType())){
-                //Opens Door if keytype matches
-                RemoveKey(keyDoor.GetKeyType());
+            if (ContainsAllKeys() && allPressurePlatesActive()){
+                //Opens Door if all keys are obtained
                 keyDoor.OpenDoor();
             }
         }
