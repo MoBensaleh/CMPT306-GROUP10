@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class GameOverSound : MonoBehaviour {
+public class SoundEffect : MonoBehaviour {
 
     private AudioSource audioSource;
 

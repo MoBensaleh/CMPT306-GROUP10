@@ -1077,6 +1077,7 @@ MonoBehaviour:
   fov: {fileID: 517994622}
   moveSpeed: 5
   rb: {fileID: 316176844}
+  cam: {fileID: 1096244251}
 --- !u!114 &316176846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1169,6 +1170,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2c1c4aaf08874122be82e579babfeaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amountOfKeys: 0
+  amountOfPressurePlates: 0
 --- !u!114 &316176850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1424,6 +1427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundTile: {fileID: 11400000, guid: a5a277ac637e24178ad610dd2fc06699, type: 2}
+  secondGroundTile: {fileID: 0}
   pitTile: {fileID: 11400000, guid: 4e83a472a53ee45858d7955cb859aef9, type: 2}
   topWallTile: {fileID: 11400000, guid: 4e83a472a53ee45858d7955cb859aef9, type: 2}
   botWallTile: {fileID: 11400000, guid: 4e83a472a53ee45858d7955cb859aef9, type: 2}
@@ -1441,6 +1445,10 @@ MonoBehaviour:
   - {fileID: 656014555}
   - {fileID: 1804565690}
   - {fileID: 1326619878}
+  enemy: {fileID: 0}
+  maxEnemies: 0
+  pressurePlateTask: []
+  maxTaskItems: 0
 --- !u!114 &317067160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105405,7 +105413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInventory: {fileID: 11400000, guid: a769ea2b854f94d698c9dae617f282b7, type: 2}
-  thisItem: {fileID: 11400000, guid: c3c2e9c6adeb64e33854cb3df5c98127, type: 2}
+  thisItem: {fileID: 0}
 --- !u!61 &656014557
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -109886,7 +109894,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50d74badbdf8a4b198c7a311ddab3b0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goal: {fileID: 316176848}
   speed: 2
   timeBreak: 0
 --- !u!61 &1429426562
@@ -110825,8 +110832,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d4578855ccaf4851b9967c4cfc52cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryPanel: {fileID: 241815274}
-  inventoryActive: 0
 --- !u!114 &1838114718
 MonoBehaviour:
   m_ObjectHideFlags: 0
