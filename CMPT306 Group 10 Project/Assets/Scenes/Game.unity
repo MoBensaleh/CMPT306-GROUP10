@@ -1174,8 +1174,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2c1c4aaf08874122be82e579babfeaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountOfKeys: 0
+  amountOfStatues: 0
   amountOfPressurePlates: 0
+  amountOfKeys: 0
 --- !u!114 &316176850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110905,9 +110906,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1838114715}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d4578855ccaf4851b9967c4cfc52cef, type: 3}
+  m_Script: {fileID: 11500000, guid: f518a5b54f4f7ce4896e06e3857b3475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryPanel: {fileID: 241815274}
+  inventoryActive: 0
 --- !u!114 &1838114718
 MonoBehaviour:
   m_ObjectHideFlags: 0
