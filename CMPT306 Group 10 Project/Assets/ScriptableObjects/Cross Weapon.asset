@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Cross Weapon
   m_EditorClassIdentifier: 
   itemName: Cross Weapon
-  itemDescription: Throw it at the enemy for its sins (stuns the enemy)
+  itemDescription: Throw it at the enemy for its sins (knocks the enemy back)
   itemImage: {fileID: -4532185171169382882, guid: 40b3028d03215468480c89c79c65f2fe, type: 3}
-  numberHeld: 4
+  numberHeld: 50
   usable: 0
   unique: 1
   thisEvent:
