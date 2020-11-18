@@ -1,97 +1,28 @@
 fileFormatVersion: 2
-guid: 560a26d2f68b7024881068ed7d37e86c
+guid: 74a7b9598797c184c8c3b366918d49e8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1251183615180328722
-    second: horror idle_0
+      213: 6278323295088248867
+    second: Enemy_attack_0
   - first:
-      213: -5249919026186287231
-    second: horror idle_1
+      213: -9106545351364806938
+    second: Enemy_attack_1
   - first:
-      213: 3020629254266611558
-    second: horror idle_2
+      213: -9062800024568287954
+    second: Enemy_attack_2
   - first:
-      213: 5282384002677680764
-    second: horror idle_3
+      213: -4012038027297405688
+    second: Enemy_attack_3
   - first:
-      213: 8647108215264446627
-    second: horror idle_4
+      213: 8784601728832472573
+    second: Enemy_attack_4
   - first:
-      213: -4962248791244411468
-    second: horror idle_5
+      213: 8385366574448999592
+    second: Enemy_attack_5
   - first:
-      213: -7021805146859095528
-    second: horror idle_6
-  - first:
-      213: 4822299704386856539
-    second: horror idle_7
-  - first:
-      213: -3954721279513857986
-    second: horror idle_8
-  - first:
-      213: 3257255235390644481
-    second: horror idle_9
-  - first:
-      213: -3658833282672056616
-    second: horror idle_10
-  - first:
-      213: -2630286582265486829
-    second: horror idle_11
-  - first:
-      213: 3130326352712796375
-    second: horror idle_12
-  - first:
-      213: 154293712406330987
-    second: horror idle_13
-  - first:
-      213: -2732745041137470795
-    second: horror idle_14
-  - first:
-      213: -7552751850898190173
-    second: horror idle_15
-  - first:
-      213: 7623730476644779826
-    second: horror idle_16
-  - first:
-      213: -7584737739439238495
-    second: horror idle_17
-  - first:
-      213: 4439053344833093320
-    second: horror idle_18
-  - first:
-      213: -8831004591442804542
-    second: horror idle_19
-  - first:
-      213: -478157685914428408
-    second: horror idle_20
-  - first:
-      213: -5836656064636908855
-    second: horror idle_21
-  - first:
-      213: 6362656219349328118
-    second: horror idle_22
-  - first:
-      213: 6500105161355571933
-    second: horror idle_23
-  - first:
-      213: 3378509433657300944
-    second: horror idle_24
-  - first:
-      213: -8240909775846511042
-    second: horror idle_25
-  - first:
-      213: -4592329768211977423
-    second: horror idle_26
-  - first:
-      213: -3716972445734848608
-    second: horror idle_27
-  - first:
-      213: -8184945148665792398
-    second: horror idle_28
-  - first:
-      213: 470026101504731570
-    second: horror idle_29
+      213: -563250604970320292
+    second: Enemy_attack_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -156,7 +87,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -168,7 +99,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -180,7 +111,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -192,7 +123,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -203,7 +134,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: horror idle_0
+      name: Enemy_attack_0
       rect:
         serializedVersion: 2
         x: 0
@@ -217,14 +148,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee0336c8127e2aee0800000000000000
-      internalID: -1251183615180328722
+      spriteID: 3288bccd5c5112750800000000000000
+      internalID: 6278323295088248867
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: horror idle_1
+      name: Enemy_attack_1
       rect:
         serializedVersion: 2
         x: 160
@@ -238,14 +169,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1870a90067a8427b0800000000000000
-      internalID: -5249919026186287231
+      spriteID: 6e67ae0604d0f9180800000000000000
+      internalID: -9106545351364806938
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: horror idle_2
+      name: Enemy_attack_2
       rect:
         serializedVersion: 2
         x: 320
@@ -259,14 +190,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 667e6b28d4e6be920800000000000000
-      internalID: 3020629254266611558
+      spriteID: e2da439f4677a3280800000000000000
+      internalID: -9062800024568287954
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: horror idle_3
+      name: Enemy_attack_3
       rect:
         serializedVersion: 2
         x: 480
@@ -280,14 +211,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7a2fce534cce4940800000000000000
-      internalID: 5282384002677680764
+      spriteID: 805449dbba06258c0800000000000000
+      internalID: -4012038027297405688
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: horror idle_4
+      name: Enemy_attack_4
       rect:
         serializedVersion: 2
         x: 640
@@ -301,14 +232,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a803318b13b00870800000000000000
-      internalID: 8647108215264446627
+      spriteID: df58754cabc29e970800000000000000
+      internalID: 8784601728832472573
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: horror idle_5
+      name: Enemy_attack_5
       rect:
         serializedVersion: 2
         x: 800
@@ -322,8 +253,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4bde3c6f30d822bb0800000000000000
-      internalID: -4962248791244411468
+      spriteID: 8ac777dc87ece5470800000000000000
+      internalID: 8385366574448999592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_attack_6
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5e583b1f8eee28f0800000000000000
+      internalID: -563250604970320292
       vertices: []
       indices: 
       edges: []
