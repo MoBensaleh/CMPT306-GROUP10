@@ -43,9 +43,13 @@ public class DungeonGenerator : MonoBehaviour
     private int task1Items = 0;
     public int maxTask1Items;
 
-    public GameObject[] pressurePlateTask;
+    public GameObject cursedStatueTask;
     private int task2Items = 0;
     public int maxTask2Items;
+
+    public GameObject[] pressurePlateTask;
+    private int task3Items = 0;
+    public int maxTask3Items;
 
 
 
@@ -214,9 +218,30 @@ public class DungeonGenerator : MonoBehaviour
 
                         if (task2Items < maxTask2Items)
                         {
+                            if (Mathf.Abs(Vector3.Distance(GameObject.FindWithTag("Player").transform.position, cursedStatueTask.transform.position)) >= 5)
+                            {
+                                GameObject instantiatedCursedStatue = Instantiate(cursedStatueTask, new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
+                                if (Mathf.Abs(Vector3.Distance(cursedStatueTask.transform.position, instantiatedCursedStatue.transform.position)) < 30)
+                                {
+
+                                    Destroy(instantiatedCursedStatue);
+                                }
+                                else
+                                {
+                                    cursedStatueTask = instantiatedCursedStatue;
+                                    task2Items++;
+
+                                }
+                            }
+
+
+                        }
+
+                        if (task3Items < maxTask3Items)
+                        {
                             GameObject instantiatedBox = Instantiate(pressurePlateTask[0], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
                             GameObject instantiatedPressurePlate = Instantiate(pressurePlateTask[1], new Vector3(previousPos.x - yOffset, previousPos.y + xOffset), Quaternion.identity) as GameObject;
-                            task2Items++;
+                            task3Items++;
 
 
                         }
@@ -300,12 +325,33 @@ public class DungeonGenerator : MonoBehaviour
 
                         }
 
-
                         if (task2Items < maxTask2Items)
+                        {
+                            if (Mathf.Abs(Vector3.Distance(GameObject.FindWithTag("Player").transform.position, cursedStatueTask.transform.position)) >= 5)
+                            {
+                                GameObject instantiatedCursedStatue = Instantiate(cursedStatueTask, new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
+                                if (Mathf.Abs(Vector3.Distance(cursedStatueTask.transform.position, instantiatedCursedStatue.transform.position)) < 30)
+                                {
+
+                                    Destroy(instantiatedCursedStatue);
+                                }
+                                else
+                                {
+                                    cursedStatueTask = instantiatedCursedStatue;
+                                    task2Items++;
+
+                                }
+                            }
+
+
+                        }
+
+
+                        if (task3Items < maxTask3Items)
                         {
                             GameObject instantiatedBox = Instantiate(pressurePlateTask[0], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
                             GameObject instantiatedPressurePlate = Instantiate(pressurePlateTask[1], new Vector3(previousPos.x + yOffset, previousPos.y - xOffset), Quaternion.identity) as GameObject;
-                            task2Items++;
+                            task3Items++;
 
 
                         }
