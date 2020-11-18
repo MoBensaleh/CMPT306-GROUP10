@@ -663,7 +663,7 @@ GameObject:
   - component: {fileID: 248788389}
   - component: {fileID: 248788390}
   - component: {fileID: 248788393}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Key Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -751,7 +751,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 59e3078ec56824bb9918de9a3e1ddb16, type: 3}
-  m_Color: {r: 0.75294125, g: 0.75294125, b: 0.75294125, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1602,17 +1602,16 @@ MonoBehaviour:
   maxRouteLength: 100
   maxRoutes: 20
   myObjects:
-  - {fileID: 248788388}
+  - {fileID: 1694169645}
   - {fileID: 1002703482}
   - {fileID: 317026455}
   - {fileID: 1804565690}
-  - {fileID: 1694169645}
   enemy: {fileID: 3894706099912008452, guid: fa2d222053fc647ad89d6e57b38770c7, type: 3}
   maxEnemies: 3
-  pressurePlateTask:
-  - {fileID: 2485380733294906715, guid: 5ac2d1d917eb543cab89fcb0234524d0, type: 3}
-  - {fileID: 1057355637163634568, guid: 9a40a0b4d159d46dc9c1891fa8a17615, type: 3}
-  maxTaskItems: 2
+  keyTask: {fileID: 248788388}
+  maxTask1Items: 3
+  pressurePlateTask: []
+  maxTask2Items: 0
 --- !u!114 &317067160
 MonoBehaviour:
   m_ObjectHideFlags: 0
