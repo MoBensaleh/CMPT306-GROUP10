@@ -608,6 +608,7 @@ MonoBehaviour:
   playerInventory: {fileID: 11400000, guid: a769ea2b854f94d698c9dae617f282b7, type: 2}
   blankInventorySlot: {fileID: 5967092395413341482, guid: 6741401e3cf8b46698fbca82b7910878, type: 3}
   inventoryPanel: {fileID: 228291560}
+  inventory: {fileID: 241815274}
   descriptionText: {fileID: 1075841987}
   useButton: {fileID: 596227837}
   currentItem: {fileID: 0}
@@ -1234,6 +1235,10 @@ MonoBehaviour:
   throwOrigin: {fileID: 1202060207}
   crossPrefab: {fileID: 4970930353076547685, guid: 840ccfcee9f1e48cca740ff2bcf17297, type: 3}
   item: {fileID: 11400000, guid: b4b2a3bb1627b4e0ba61943166799830, type: 2}
+  inventoryPanel: {fileID: 1132936500}
+  otherInventoryPanel: {fileID: 241815274}
+  PauseMenuPanel: {fileID: 1381612634}
+  OptionsMenuPanel: {fileID: 2033467269}
   throwForce: 10
 --- !u!114 &316176854
 MonoBehaviour:
@@ -108820,6 +108825,7 @@ MonoBehaviour:
   playerInventory: {fileID: 11400000, guid: a769ea2b854f94d698c9dae617f282b7, type: 2}
   blankInventorySlot: {fileID: 5967092395413341482, guid: 6741401e3cf8b46698fbca82b7910878, type: 3}
   inventoryPanel: {fileID: 2019158325}
+  inventory: {fileID: 1132936500}
   descriptionText: {fileID: 1347981954}
   useButton: {fileID: 1868362141}
   currentItem: {fileID: 0}
