@@ -664,7 +664,7 @@ GameObject:
   - component: {fileID: 248788390}
   - component: {fileID: 248788393}
   m_Layer: 5
-  m_Name: Key Red
+  m_Name: Key
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1177,7 +1177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amountOfStatues: 0
   amountOfPressurePlates: 0
-  amountOfKeys: 0
+  amountOfKeys: 3
 --- !u!114 &316176850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1610,8 +1610,10 @@ MonoBehaviour:
   maxEnemies: 3
   keyTask: {fileID: 248788388}
   maxTask1Items: 3
-  pressurePlateTask: []
+  cursedStatueTask: {fileID: 0}
   maxTask2Items: 0
+  pressurePlateTask: []
+  maxTask3Items: 0
 --- !u!114 &317067160
 MonoBehaviour:
   m_ObjectHideFlags: 0

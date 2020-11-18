@@ -664,7 +664,7 @@ GameObject:
   - component: {fileID: 248788390}
   - component: {fileID: 248788393}
   m_Layer: 10
-  m_Name: Key Red
+  m_Name: Key
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1175,7 +1175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2c1c4aaf08874122be82e579babfeaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountOfStatues: 0
+  amountOfStatues: 3
   amountOfPressurePlates: 0
   amountOfKeys: 0
 --- !u!114 &316176850
