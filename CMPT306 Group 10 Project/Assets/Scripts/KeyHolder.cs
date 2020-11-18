@@ -36,7 +36,7 @@ public class KeyHolder : MonoBehaviour
     }
 
     public bool allPressurePlatesActive(){
-        if (amountOfPressurePlates == amountOfPressurePlatesActivated){
+        if (amountOfPressurePlates <= amountOfPressurePlatesActivated){
             return true;
         } else {
             Debug.Log("Missing pressure plates");
