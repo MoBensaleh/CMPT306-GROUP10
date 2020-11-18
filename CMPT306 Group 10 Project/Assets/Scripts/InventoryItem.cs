@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+
+
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Items")]
 
 public class InventoryItem : ScriptableObject
@@ -14,13 +16,19 @@ public class InventoryItem : ScriptableObject
     public bool usable;
     public bool unique;
     public UnityEvent thisEvent;
-    private Delay delay;
+    
+    
+   
 
 
     public void Use()
     {
         
         thisEvent.Invoke();
+
+        
+        
+
     }
 
     public void DecreaseAmount(int amountToDecrease)
@@ -45,18 +53,33 @@ public class InventoryItem : ScriptableObject
             enemy.GetComponent<Enemy>().StunEnemy(seconds);
         }
     }
+    
 
     public void SpawnCandle(GameObject candle)
     {
         Instantiate(candle, GameObject.FindWithTag("Player").transform.position, Quaternion.identity);
     }
 
-    public void Awakening(FieldOfView fov)
-    {
-        delay.Invoke("ExtendVision", 0f);
-        delay.Invoke("NormalVision", 5f);
 
+    
+   
+    
+    
+    public void Awakening()
+    {
+        GameObject delayGameObject = GameObject.Find("FOV");
+        Delay delay = delayGameObject.GetComponent<Delay>();
+        delay.StartAwakening();
     }
+
+            
+
+
+
+
+
+
+
 
 
 }

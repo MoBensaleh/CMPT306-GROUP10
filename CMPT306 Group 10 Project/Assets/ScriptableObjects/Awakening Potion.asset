@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Awakening Potion
   itemDescription: 'Drink it to completely extend your vision for a limited time '
   itemImage: {fileID: 21300000, guid: 8a965876912dc461e939d6f220770a36, type: 3}
-  numberHeld: 2
+  numberHeld: 50
   usable: 1
   unique: 0
   thisEvent:
@@ -29,6 +29,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000}
+        m_TargetAssemblyTypeName: InventoryItem, Assembly-CSharp
+        m_MethodName: Awakening
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

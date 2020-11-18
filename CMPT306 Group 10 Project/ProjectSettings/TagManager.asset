@@ -6,7 +6,9 @@ TagManager:
   tags:
   - Enemy
   - Death Sound
-  - Win Sound
+  - FOV
+  - Pause Canvas
+  - Inventory Canvas
   layers:
   - Default
   - TransparentFX
