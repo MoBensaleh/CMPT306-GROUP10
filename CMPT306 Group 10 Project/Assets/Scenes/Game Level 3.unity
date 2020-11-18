@@ -108677,6 +108677,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Box
       objectReference: {fileID: 0}
+    - target: {fileID: 2485380733294906715, guid: 5ac2d1d917eb543cab89fcb0234524d0, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3980449035124912016, guid: 5ac2d1d917eb543cab89fcb0234524d0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.52
@@ -109909,6 +109913,10 @@ PrefabInstance:
     - target: {fileID: 1057355637163634568, guid: 9a40a0b4d159d46dc9c1891fa8a17615, type: 3}
       propertyPath: m_Name
       value: Pressure Plate
+      objectReference: {fileID: 0}
+    - target: {fileID: 1057355637163634568, guid: 9a40a0b4d159d46dc9c1891fa8a17615, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1057355637163634572, guid: 9a40a0b4d159d46dc9c1891fa8a17615, type: 3}
       propertyPath: m_LocalPosition.x
