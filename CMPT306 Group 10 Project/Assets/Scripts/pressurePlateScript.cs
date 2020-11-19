@@ -4,24 +4,15 @@ using UnityEngine;
 
 public class pressurePlateScript : MonoBehaviour
 {
-    bool boxDetected = false;
     [SerializeField] KeyDoor door;
 
     private void OnTriggerEnter2D(Collider2D collider) {
         Box box = collider.GetComponent<Box>();
 
         if (box != null){
-            boxDetected = true;
+            KeyHolder.amountOfPressurePlatesActivated = KeyHolder.amountOfPressurePlatesActivated + 1;
         } else {
-            boxDetected = false;
-        }
-    }
-
-    void Update(){
-        if (boxDetected){
-            door.OpenDoor();
-        } else{
-            door.CloseDoor();
+            KeyHolder.amountOfPressurePlatesActivated = KeyHolder.amountOfPressurePlatesActivated - 1;
         }
     }
 }

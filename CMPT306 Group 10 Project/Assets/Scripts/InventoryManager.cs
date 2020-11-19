@@ -9,9 +9,12 @@ public class InventoryManager : MonoBehaviour
     public PlayerInventory playerInventory;
     [SerializeField] private GameObject blankInventorySlot;
     [SerializeField] private GameObject inventoryPanel;
+    [SerializeField] private GameObject inventory;
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private GameObject useButton;
     public InventoryItem currentItem;
+    
+    
 
     public void SetTextAndButton(string description, bool buttonActive)
     {
@@ -80,6 +83,10 @@ public class InventoryManager : MonoBehaviour
         if (currentItem)
         {
             currentItem.Use();
+
+            inventory.SetActive(false);
+            Time.timeScale = 1f;
+
             // Clear all of the inventory slots
             ClearInventorySlots();
             // Refill all slots with new numbers
