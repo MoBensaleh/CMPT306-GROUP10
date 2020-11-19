@@ -1452,7 +1452,7 @@ MonoBehaviour:
   pressurePlateTask:
   - {fileID: 101629595}
   - {fileID: 389272534}
-  maxTask3Items: 3
+  maxTask3Items: 2
 --- !u!114 &317067160
 MonoBehaviour:
   m_ObjectHideFlags: 0

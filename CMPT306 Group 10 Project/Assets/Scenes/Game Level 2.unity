@@ -1532,7 +1532,7 @@ MonoBehaviour:
   keyTask: {fileID: 0}
   maxTask1Items: 0
   cursedStatueTask: {fileID: 2062671042}
-  maxTask2Items: 3
+  maxTask2Items: 2
   pressurePlateTask: []
   maxTask3Items: 0
 --- !u!114 &317067160

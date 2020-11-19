@@ -1659,7 +1659,7 @@ MonoBehaviour:
   enemy: {fileID: 3894706099912008452, guid: fa2d222053fc647ad89d6e57b38770c7, type: 3}
   maxEnemies: 3
   keyTask: {fileID: 248788388}
-  maxTask1Items: 3
+  maxTask1Items: 2
   cursedStatueTask: {fileID: 0}
   maxTask2Items: 0
   pressurePlateTask: []
