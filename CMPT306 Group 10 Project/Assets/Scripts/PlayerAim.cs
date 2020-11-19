@@ -23,16 +23,16 @@ public class PlayerAim : MonoBehaviour
 
         fov.SetAimDirection(direction);
 
-        Vector3 localScale = Vector3.one;
-        if(rotateZ > 90 || rotateZ < -90)
-        {
-            localScale.y = -1f;
-        }
-        else
-        {
-            localScale.y = 1f;
-        }
+  //      Vector3 localScale = Vector3.one;
+  //      if(rotateZ > 90 || rotateZ < -90)
+  //      {
+  //          localScale.y = -1f;
+  //      }
+ //       else
+ //       {
+ //           localScale.y = 1f;
+  //      }
 
-        transform.localScale = localScale;
+ //       transform.localScale = localScale;
     }
 }
