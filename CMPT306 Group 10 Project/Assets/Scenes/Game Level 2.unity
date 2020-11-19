@@ -944,7 +944,6 @@ GameObject:
   - component: {fileID: 316176851}
   - component: {fileID: 316176852}
   - component: {fileID: 316176853}
-  - component: {fileID: 316176854}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1174,18 +1173,6 @@ MonoBehaviour:
   PauseMenuPanel: {fileID: 1381612634}
   OptionsMenuPanel: {fileID: 2033467269}
   throwForce: 10
---- !u!114 &316176854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 316176842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cb575eb9bda6b64c8f1b7d4d68a2178, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &316234445
 GameObject:
   m_ObjectHideFlags: 0
@@ -108859,7 +108846,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.2380371, y: 9}
+  m_AnchoredPosition: {x: -1.2380676, y: 9}
   m_SizeDelta: {x: -816.3686, y: -394.04126}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1285430255
@@ -111218,7 +111205,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.2380371, y: 101.80005}
+  m_AnchoredPosition: {x: -1.2380676, y: 101.80005}
   m_SizeDelta: {x: -813.41534, y: -395.0421}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1909796873

@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class Portal : MonoBehaviour
 {
+    SceneTransition transition;
+    SoundEffect winSound;
+
     public void goToLevel2() {
         Time.timeScale = 1f;
        SceneManager.LoadScene("Game Level 2");
@@ -16,7 +20,13 @@ public class Portal : MonoBehaviour
    }
 
    public void win() {
-       Time.timeScale = 1f;
-       SceneManager.LoadScene("Win");
-   }
+        Debug.Log("Victory");
+        Time.timeScale = 0f;
+
+        winSound = this.GetComponentInChildren<SoundEffect>();
+        transition = this.GetComponent<SceneTransition>();
+
+        winSound.PlayMusic();
+        transition.LoadLevel("Win");
+    }
 }
