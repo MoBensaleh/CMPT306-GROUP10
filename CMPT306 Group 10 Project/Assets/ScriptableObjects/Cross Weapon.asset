@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Cross Weapon
   itemDescription: Throw it at the enemy for its sins (knocks the enemy back)
   itemImage: {fileID: -4532185171169382882, guid: 40b3028d03215468480c89c79c65f2fe, type: 3}
-  numberHeld: 50
+  numberHeld: 200
   usable: 0
   unique: 1
   thisEvent:

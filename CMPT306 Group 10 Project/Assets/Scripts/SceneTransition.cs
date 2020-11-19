@@ -10,7 +10,6 @@ public class SceneTransition : MonoBehaviour {
 
     public void LoadLevel(string level) {
         animator = GameObject.Find("Transition").GetComponent<Animator>();
-        Debug.Log("Load Game Over");
         StartCoroutine(DelayLoadLevel(level));
     }
 

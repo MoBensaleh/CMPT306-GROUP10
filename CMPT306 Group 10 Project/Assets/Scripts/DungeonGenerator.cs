@@ -38,10 +38,19 @@ public class DungeonGenerator : MonoBehaviour
     public GameObject enemy;
     private int numOfEnemies = 0;
     public int maxEnemies;
-    
+
+    public GameObject keyTask;
+    private int task1Items = 0;
+    public int maxTask1Items;
+
+    public GameObject cursedStatueTask;
+    private int task2Items = 0;
+    public int maxTask2Items;
+
     public GameObject[] pressurePlateTask;
-    private int taskItems = 0;
-    public int maxTaskItems;
+    private int task3Items = 0;
+    public int maxTask3Items;
+
 
 
 
@@ -185,11 +194,70 @@ public class DungeonGenerator : MonoBehaviour
                         y = previousPos.y + xOffset;
                         x = previousPos.x - yOffset;
                         GenerateSquare(x, y, roomSize);
-                        if (taskItems < maxTaskItems)
+
+                        if (task1Items < maxTask1Items)
                         {
-                            GameObject instantiatedBox = Instantiate(pressurePlateTask[0], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
-                            GameObject instantiatedPressurePlate = Instantiate(pressurePlateTask[1], new Vector3(previousPos.x - yOffset, previousPos.y + xOffset), Quaternion.identity) as GameObject;
-                            taskItems++;
+                            if (Mathf.Abs(Vector3.Distance(GameObject.FindWithTag("Player").transform.position, keyTask.transform.position)) >= 5)
+                            {
+                                GameObject instantiatedKey = Instantiate(keyTask, new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
+                                if (Mathf.Abs(Vector3.Distance(keyTask.transform.position, instantiatedKey.transform.position)) < 30)
+                                {
+
+                                    Destroy(instantiatedKey);
+                                }
+                                else
+                                {
+                                    keyTask = instantiatedKey;
+                                    task1Items++;
+
+                                }
+                            }
+
+
+                        }
+
+                        if (task2Items < maxTask2Items)
+                        {
+                            if (Mathf.Abs(Vector3.Distance(GameObject.FindWithTag("Player").transform.position, cursedStatueTask.transform.position)) >= 5)
+                            {
+                                GameObject instantiatedCursedStatue = Instantiate(cursedStatueTask, new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
+                                if (Mathf.Abs(Vector3.Distance(cursedStatueTask.transform.position, instantiatedCursedStatue.transform.position)) < 30)
+                                {
+
+                                    Destroy(instantiatedCursedStatue);
+                                }
+                                else
+                                {
+                                    cursedStatueTask = instantiatedCursedStatue;
+                                    task2Items++;
+
+                                }
+                            }
+
+
+                        }
+
+                        if (task3Items < maxTask3Items)
+                        {
+                            if (Mathf.Abs(Vector3.Distance(GameObject.FindWithTag("Player").transform.position, pressurePlateTask[0].transform.position)) >= 5 &&
+                                Mathf.Abs(Vector3.Distance(GameObject.FindWithTag("Player").transform.position, pressurePlateTask[1].transform.position)) >= 5)
+                            {
+                                GameObject instantiatedBox = Instantiate(pressurePlateTask[0], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
+                                GameObject instantiatedPressurePlate = Instantiate(pressurePlateTask[1], new Vector3(previousPos.x - yOffset, previousPos.y + xOffset), Quaternion.identity) as GameObject;
+                                if (Mathf.Abs(Vector3.Distance(pressurePlateTask[0].transform.position, instantiatedBox.transform.position)) < 30 && Mathf.Abs(Vector3.Distance(pressurePlateTask[1].transform.position, instantiatedBox.transform.position)) < 30)
+                                {
+
+                                    Destroy(instantiatedBox);
+                                    Destroy(instantiatedPressurePlate);
+                                }
+                                else
+                                {
+                                    pressurePlateTask[0] = instantiatedBox;
+                                    pressurePlateTask[1] = instantiatedPressurePlate;
+                                    task3Items++;
+
+                                }
+                            }
 
 
                         }
@@ -199,12 +267,14 @@ public class DungeonGenerator : MonoBehaviour
 
 
                         GameObject instantiatedObject = Instantiate(myObjects[randomIndex], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
+
+
                         if (numOfEnemies < maxEnemies)
                         {
                             if (Mathf.Abs(Vector3.Distance(GameObject.FindWithTag("Player").transform.position, enemy.transform.position)) >= 5)
                             {
                                 GameObject instantiatedEnemy = Instantiate(enemy, new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
-                                if (Mathf.Abs(Vector3.Distance(GameObject.FindWithTag("Player").transform.position, instantiatedEnemy.transform.position)) < 10)
+                                if (Mathf.Abs(Vector3.Distance(GameObject.FindWithTag("Player").transform.position, instantiatedEnemy.transform.position)) < 40)
                                 {
                                     Destroy(instantiatedEnemy);
                                 }
@@ -233,12 +303,12 @@ public class DungeonGenerator : MonoBehaviour
                     if (routeUsed)
                     {
                         GenerateSquare(previousPos.x + yOffset, previousPos.y - xOffset, roomSize);
-                       
+
 
                         NewRoute(previousPos.x + yOffset, previousPos.y - xOffset, Random.Range(routeLength, maxRouteLength), previousPos);
-                       
-                       
-                                   
+
+
+
                         int randomIndex = Random.Range(0, myObjects.Length);
 
 
@@ -249,38 +319,95 @@ public class DungeonGenerator : MonoBehaviour
                         y = previousPos.y - xOffset;
                         x = previousPos.x + yOffset;
                         GenerateSquare(x, y, roomSize);
-                        if(taskItems < maxTaskItems)
+
+                        if (task1Items < maxTask1Items)
                         {
-                            GameObject instantiatedBox = Instantiate(pressurePlateTask[0], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
-                            GameObject instantiatedPressurePlate = Instantiate(pressurePlateTask[1], new Vector3(previousPos.x + yOffset, previousPos.y - xOffset), Quaternion.identity) as GameObject;
-                            taskItems++;
+                            if (Mathf.Abs(Vector3.Distance(GameObject.FindWithTag("Player").transform.position, keyTask.transform.position)) >= 5)
+                            {
+                                GameObject instantiatedKey = Instantiate(keyTask, new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
+                                if (Mathf.Abs(Vector3.Distance(keyTask.transform.position, instantiatedKey.transform.position)) < 30)
+                                {
+
+                                    Destroy(instantiatedKey);
+                                }
+                                else
+                                {
+                                    keyTask = instantiatedKey;
+                                    task1Items++;
+
+                                }
+                            }
 
 
                         }
-                        
+
+                        if (task2Items < maxTask2Items)
+                        {
+                            if (Mathf.Abs(Vector3.Distance(GameObject.FindWithTag("Player").transform.position, cursedStatueTask.transform.position)) >= 5)
+                            {
+                                GameObject instantiatedCursedStatue = Instantiate(cursedStatueTask, new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
+                                if (Mathf.Abs(Vector3.Distance(cursedStatueTask.transform.position, instantiatedCursedStatue.transform.position)) < 30)
+                                {
+
+                                    Destroy(instantiatedCursedStatue);
+                                }
+                                else
+                                {
+                                    cursedStatueTask = instantiatedCursedStatue;
+                                    task2Items++;
+
+                                }
+                            }
+
+
+                        }
+
+
+                        if (task3Items < maxTask3Items)
+                        {
+                            if (Mathf.Abs(Vector3.Distance(GameObject.FindWithTag("Player").transform.position, pressurePlateTask[0].transform.position)) >= 5 &&
+                                Mathf.Abs(Vector3.Distance(GameObject.FindWithTag("Player").transform.position, pressurePlateTask[1].transform.position)) >= 5)
+                            {
+                                GameObject instantiatedBox = Instantiate(pressurePlateTask[0], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
+                                GameObject instantiatedPressurePlate = Instantiate(pressurePlateTask[1], new Vector3(previousPos.x +yOffset, previousPos.y - xOffset), Quaternion.identity) as GameObject;
+                                if (Mathf.Abs(Vector3.Distance(pressurePlateTask[0].transform.position, instantiatedBox.transform.position)) < 20 && Mathf.Abs(Vector3.Distance(pressurePlateTask[1].transform.position, instantiatedBox.transform.position)) < 20)
+                                {
+
+                                    Destroy(instantiatedBox);
+                                    Destroy(instantiatedPressurePlate);
+                                }
+                                else
+                                {
+                                    pressurePlateTask[0] = instantiatedBox;
+                                    pressurePlateTask[1] = instantiatedPressurePlate;
+                                    task3Items++;
+
+                                }
+                            }
+
+
+                        }
 
                         int randomIndex = Random.Range(0, myObjects.Length);
 
 
                         GameObject instantiatedObject = Instantiate(myObjects[randomIndex], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
+
                         routeUsed = true;
                     }
                 }
-
                 if (!routeUsed)
                 {
                     x = previousPos.x + xOffset;
                     y = previousPos.y + yOffset;
                     GenerateSquare(x, y, roomSize);
 
-
-
-
                 }
                 
             }
             
         }
+
     }
 
     

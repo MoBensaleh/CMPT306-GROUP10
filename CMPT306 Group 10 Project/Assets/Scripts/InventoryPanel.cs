@@ -21,7 +21,7 @@ public class InventoryPanel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown("left shift"))
         {
             if (inventoryActive)
             {

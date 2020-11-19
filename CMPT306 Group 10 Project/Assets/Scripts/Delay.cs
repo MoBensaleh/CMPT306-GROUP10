@@ -5,7 +5,7 @@ using UnityEngine;
 public class Delay : MonoBehaviour
 {
     float delayTime;
-    int maxTime = 6;
+    int maxTime = 10;
     bool didExtendVision = false;
 
 

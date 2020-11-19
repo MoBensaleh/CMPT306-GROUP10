@@ -2,24 +2,24 @@
 
 public class GameOverSound : MonoBehaviour {
 
-    private AudioSource gameOverAudioSource;
+    private AudioSource audioSource;
 
     void Awake() {
         DontDestroyOnLoad(this.gameObject);
-        gameOverAudioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void PlayMusic() {
-        if (gameOverAudioSource.isPlaying) return;
-        gameOverAudioSource.Play();
+        if (audioSource.isPlaying) return;
+        audioSource.Play();
     }
 
     public void StopMusic() {
-        gameOverAudioSource.Stop();
+        audioSource.Stop();
     }
 
     public void PauseMusic() {
-        gameOverAudioSource.Pause();
+        audioSource.Pause();
     }
 
 

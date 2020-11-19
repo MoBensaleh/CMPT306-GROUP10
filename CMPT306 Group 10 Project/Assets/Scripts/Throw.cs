@@ -7,6 +7,10 @@ public class Throw : MonoBehaviour
     public Transform throwOrigin;
     public GameObject crossPrefab;
     public InventoryItem item;
+    public GameObject inventoryPanel;
+    public GameObject otherInventoryPanel;
+    public GameObject PauseMenuPanel;
+    public GameObject OptionsMenuPanel;
 
 
     public float throwForce = 20f;
@@ -15,10 +19,18 @@ public class Throw : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetButtonDown("Fire1"))
             {
             ThrowItem();
-            item.numberHeld -= 1;
+            if (!inventoryPanel.activeSelf && !otherInventoryPanel.activeSelf && !PauseMenuPanel.activeSelf && !OptionsMenuPanel.activeSelf)
+            {
+                item.numberHeld -= 1;
+
+            }
+            
+
+
             if (item.numberHeld < 0)
             {
                 item.numberHeld = 0;
