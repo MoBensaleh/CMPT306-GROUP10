@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class KeyHolder : MonoBehaviour
 {
@@ -65,6 +66,19 @@ public class KeyHolder : MonoBehaviour
             if (ContainsAllKeys() && allPressurePlatesActive() && allStatuesActivated()){
                 //Opens Door if all keys are obtained
                 keyDoor.OpenDoor();
+            }
+        }
+
+        Portal portal = collider.GetComponent<Portal>();
+        if (portal != null){
+            Scene currentScene = SceneManager.GetActiveScene();
+            string sceneName = currentScene.name;
+            if (sceneName == "Game"){
+                portal.goToLevel2();
+            } else if (sceneName == "Game Level 2"){
+                portal.goToLevel3();
+            } else if (sceneName == "Game Level 3"){
+                portal.win();
             }
         }
     }
