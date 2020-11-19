@@ -26,14 +26,14 @@ public class PlayerMovement : MonoBehaviour
         moveDirection.x = Input.GetAxisRaw("Horizontal");
         moveDirection.y = Input.GetAxisRaw("Vertical");
 
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition).normalized;
 
     }
 
     private void FixedUpdate()
     {
         // Movement
-        //Move(); //Uncomment for original, Mac 2020-11-11
+        // Move(); //Uncomment for original, Mac 2020-11-11
         
         //Mac 2020-11-11
         rb.MovePosition(rb.position + moveDirection * moveSpeed * Time.fixedDeltaTime);
