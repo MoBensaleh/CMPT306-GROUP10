@@ -12,8 +12,8 @@ public class InventoryPanel : MonoBehaviour
     private void Start()
     {
 
-        inventoryPanel.SetActive(false);
-        inventoryActive = false;
+        inventoryPanel.SetActive(true);
+        inventoryActive = true;
 
     }
 

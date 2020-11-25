@@ -10,6 +10,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject inventoryPanel;
     public bool usingPausePanel;
+    public GameObject otherInventoryPanel;
 
     private void Start()
     {
@@ -17,6 +18,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         inventoryPanel.SetActive(false);
         usingPausePanel = false;
+        otherInventoryPanel.SetActive(true);
     }
 
 
@@ -26,8 +28,10 @@ public class PauseMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape)) {
             if (GameIsPaused) {
                 Resume();
+                otherInventoryPanel.SetActive(true);
             } else {
                 Pause();
+                otherInventoryPanel.SetActive(false);
             }
         }
     }
