@@ -156,8 +156,12 @@ public class DungeonGenerator : MonoBehaviour
                         
                         int randomIndex = Random.Range(0, myObjects.Length);
 
+                        if (Mathf.Abs(Vector3.Distance(GameObject.FindWithTag("Statue").transform.position, myObjects[randomIndex].transform.position)) >= 3)
+                        {
+                            GameObject instantiatedObject = Instantiate(myObjects[randomIndex], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
 
-                        GameObject instantiatedObject = Instantiate(myObjects[randomIndex], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
+                        }
+                           
                         
                     }
                     else
@@ -168,8 +172,12 @@ public class DungeonGenerator : MonoBehaviour
                      
                         int randomIndex = Random.Range(0, myObjects.Length);
 
-                       
-                        GameObject instantiatedObject = Instantiate(myObjects[randomIndex], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
+
+                        if (Mathf.Abs(Vector3.Distance(GameObject.FindWithTag("Statue").transform.position, myObjects[randomIndex].transform.position)) >= 3)
+                        {
+                            GameObject instantiatedObject = Instantiate(myObjects[randomIndex], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
+
+                        }
                         routeUsed = true;
                     }
                 }
@@ -187,7 +195,11 @@ public class DungeonGenerator : MonoBehaviour
                         int randomIndex = Random.Range(0, myObjects.Length);
 
 
-                        GameObject instantiatedObject = Instantiate(myObjects[randomIndex], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
+                        if (Mathf.Abs(Vector3.Distance(GameObject.FindWithTag("Statue").transform.position, myObjects[randomIndex].transform.position)) >= 3)
+                        {
+                            GameObject instantiatedObject = Instantiate(myObjects[randomIndex], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
+
+                        }
                     }
                     else
                     {
@@ -266,7 +278,11 @@ public class DungeonGenerator : MonoBehaviour
                         int randomIndex = Random.Range(0, myObjects.Length);
 
 
-                        GameObject instantiatedObject = Instantiate(myObjects[randomIndex], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
+                        if (Mathf.Abs(Vector3.Distance(GameObject.FindWithTag("Statue").transform.position, myObjects[randomIndex].transform.position)) >= 3)
+                        {
+                            GameObject instantiatedObject = Instantiate(myObjects[randomIndex], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
+
+                        }
 
 
                         if (numOfEnemies < maxEnemies)
@@ -312,7 +328,11 @@ public class DungeonGenerator : MonoBehaviour
                         int randomIndex = Random.Range(0, myObjects.Length);
 
 
-                        GameObject instantiatedObject = Instantiate(myObjects[randomIndex], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
+                        if (Mathf.Abs(Vector3.Distance(GameObject.FindWithTag("Statue").transform.position, myObjects[randomIndex].transform.position)) >= 3)
+                        {
+                            GameObject instantiatedObject = Instantiate(myObjects[randomIndex], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
+
+                        }
                     }
                     else
                     {
@@ -391,8 +411,11 @@ public class DungeonGenerator : MonoBehaviour
                         int randomIndex = Random.Range(0, myObjects.Length);
 
 
-                        GameObject instantiatedObject = Instantiate(myObjects[randomIndex], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
+                        if (Mathf.Abs(Vector3.Distance(GameObject.FindWithTag("Statue").transform.position, myObjects[randomIndex].transform.position)) >= 3)
+                        {
+                            GameObject instantiatedObject = Instantiate(myObjects[randomIndex], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
 
+                        }
                         routeUsed = true;
                     }
                 }
