@@ -182,16 +182,17 @@ public class DungeonGenerator : MonoBehaviour
                      
                         int randomIndex = Random.Range(0, myObjects.Length);
                         GameObject instantiatedObject = Instantiate(myObjects[randomIndex], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
-                        for (int i = 0; i < GameObject.FindGameObjectsWithTag("Statue").Length; i++)
-                        {
-                            if (Mathf.Abs(Vector3.Distance(GameObject.FindGameObjectsWithTag("Statue")[i].transform.position, instantiatedObject.transform.position)) <= 5)
+                        try {
+                            for (int i = 0; i < GameObject.FindGameObjectsWithTag("Statue").Length; i++)
                             {
-                                Destroy(instantiatedObject);
-
-
+                                if (Mathf.Abs(Vector3.Distance(GameObject.FindGameObjectsWithTag("Statue")[i].transform.position, instantiatedObject.transform.position)) <= 5)
+                                {
+                                    Destroy(instantiatedObject);
+                                }
                             }
-
-                        }
+                        } catch (System.Exception e) {
+                            Debug.LogException(e, this);
+                        }  
 
 
 
@@ -211,17 +212,17 @@ public class DungeonGenerator : MonoBehaviour
 
                         int randomIndex = Random.Range(0, myObjects.Length);
                         GameObject instantiatedObject = Instantiate(myObjects[randomIndex], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
-                        for (int i = 0; i < GameObject.FindGameObjectsWithTag("Statue").Length; i++)
-                        {
-                            if (Mathf.Abs(Vector3.Distance(GameObject.FindGameObjectsWithTag("Statue")[i].transform.position, instantiatedObject.transform.position)) <= 5)
+                        try {
+                            for (int i = 0; i < GameObject.FindGameObjectsWithTag("Statue").Length; i++)
                             {
-                                Destroy(instantiatedObject);
-
-
+                                if (Mathf.Abs(Vector3.Distance(GameObject.FindGameObjectsWithTag("Statue")[i].transform.position, instantiatedObject.transform.position)) <= 5)
+                                {
+                                    Destroy(instantiatedObject);
+                                }
                             }
-
-                        }
-
+                        } catch (System.Exception e) {
+                            Debug.LogException(e, this);
+                        }  
 
 
                     }
@@ -301,17 +302,17 @@ public class DungeonGenerator : MonoBehaviour
 
                         int randomIndex = Random.Range(0, myObjects.Length);
                         GameObject instantiatedObject = Instantiate(myObjects[randomIndex], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
-                        for (int i = 0; i < GameObject.FindGameObjectsWithTag("Statue").Length; i++)
-                        {
-                            if (Mathf.Abs(Vector3.Distance(GameObject.FindGameObjectsWithTag("Statue")[i].transform.position, instantiatedObject.transform.position)) <= 5)
+                        try{
+                            for (int i = 0; i < GameObject.FindGameObjectsWithTag("Statue").Length; i++)
                             {
-                                Destroy(instantiatedObject);
-
-
+                                if (Mathf.Abs(Vector3.Distance(GameObject.FindGameObjectsWithTag("Statue")[i].transform.position, instantiatedObject.transform.position)) <= 5)
+                                {
+                                    Destroy(instantiatedObject);
+                                }
                             }
-
-                        }
-
+                       } catch (System.Exception e) {
+                            Debug.LogException(e, this);
+                        }  
 
 
                         if (numOfEnemies < maxEnemies)
@@ -356,16 +357,17 @@ public class DungeonGenerator : MonoBehaviour
 
                         int randomIndex = Random.Range(0, myObjects.Length);
                         GameObject instantiatedObject = Instantiate(myObjects[randomIndex], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
-                        for (int i = 0; i < GameObject.FindGameObjectsWithTag("Statue").Length; i++)
-                        {
-                            if (Mathf.Abs(Vector3.Distance(GameObject.FindGameObjectsWithTag("Statue")[i].transform.position, instantiatedObject.transform.position)) <= 5)
+                        try {
+                            for (int i = 0; i < GameObject.FindGameObjectsWithTag("Statue").Length; i++)
                             {
-                                Destroy(instantiatedObject);
-
-
+                                if (Mathf.Abs(Vector3.Distance(GameObject.FindGameObjectsWithTag("Statue")[i].transform.position, instantiatedObject.transform.position)) <= 5)
+                                {
+                                    Destroy(instantiatedObject);
+                                }
                             }
-
-                        }
+                       } catch (System.Exception e) {
+                            Debug.LogException(e, this);
+                        }  
 
                     }
                     else
@@ -444,17 +446,17 @@ public class DungeonGenerator : MonoBehaviour
 
                         int randomIndex = Random.Range(0, myObjects.Length);
                         GameObject instantiatedObject = Instantiate(myObjects[randomIndex], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
-                        for (int i = 0; i < GameObject.FindGameObjectsWithTag("Statue").Length; i++)
-                        {
-                            if (Mathf.Abs(Vector3.Distance(GameObject.FindGameObjectsWithTag("Statue")[i].transform.position, instantiatedObject.transform.position)) <= 5)
+                        try {
+                            for (int i = 0; i < GameObject.FindGameObjectsWithTag("Statue").Length; i++)
                             {
-                                Destroy(instantiatedObject);
-
-
+                                if (Mathf.Abs(Vector3.Distance(GameObject.FindGameObjectsWithTag("Statue")[i].transform.position, instantiatedObject.transform.position)) <= 5)
+                                {
+                                    Destroy(instantiatedObject);
+                                }
                             }
-
-                        }
-
+                       } catch (System.Exception e) {
+                            Debug.LogException(e, this);
+                        }  
 
 
                         routeUsed = true;
