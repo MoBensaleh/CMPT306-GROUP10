@@ -15,8 +15,13 @@ public class PhysicalInventoryItem : MonoBehaviour
         {
             AddItemToInventory();
             Destroy(this.gameObject);
-            inventoryPanel.SetActive(false);
-            inventoryPanel.SetActive(true);
+            if (inventoryPanel.activeSelf)
+            {
+                inventoryPanel.SetActive(false);
+                inventoryPanel.SetActive(true);
+
+            }
+           
             
         }
     }
