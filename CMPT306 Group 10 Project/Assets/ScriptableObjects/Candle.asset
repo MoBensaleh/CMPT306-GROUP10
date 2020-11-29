@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Candle
   itemDescription: Lights The Surrounding Area
   itemImage: {fileID: 4622006203705017954, guid: d3a32a21b475e46ea9a8fea66c7b7e82, type: 3}
-  numberHeld: 20
+  numberHeld: 3
   usable: 1
   unique: 0
   thisEvent:
