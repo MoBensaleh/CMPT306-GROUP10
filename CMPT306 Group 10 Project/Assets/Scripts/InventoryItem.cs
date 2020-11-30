@@ -70,7 +70,17 @@ public class InventoryItem : ScriptableObject
         delay.StartAwakening();
     }
 
-            
+    public void Boost()
+    {
+        GameObject playerSpeedGameObject = GameObject.Find("Player");
+        playerSpeedGameObject.GetComponent<IncreasePlayerSpeed>().StartBoost();
+       
+    }
+
+
+
+
+
 
 
 

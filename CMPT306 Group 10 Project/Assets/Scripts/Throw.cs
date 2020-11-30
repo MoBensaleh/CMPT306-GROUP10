@@ -27,8 +27,13 @@ public class Throw : MonoBehaviour
             {
                 ThrowItem();
                 item.numberHeld -= 1;
-                otherInventoryPanel.SetActive(false);
-                otherInventoryPanel.SetActive(true);
+                if (otherInventoryPanel.activeSelf)
+                {
+                    otherInventoryPanel.SetActive(false);
+                    otherInventoryPanel.SetActive(true);
+
+                }
+                
 
 
             }
