@@ -6,6 +6,9 @@ public class KnockBack : MonoBehaviour
 {
     public float thrust;
     public float knockTime;
+    Rigidbody2D enemy;
+    Enemy enemyState;
+
 
     // Start is called before the first frame update
     void Start()
@@ -16,13 +19,14 @@ public class KnockBack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // if (enemyState != null && enemyState.onTerminus()) StopCoroutine(KnockCo(enemy));
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Rigidbody2D enemy = other.GetComponent<Rigidbody2D>();
+            enemy = other.GetComponent<Rigidbody2D>();
+            enemyState = other.GetComponent<Enemy>();
             if(enemy != null)
             {
                 enemy.isKinematic = false;
@@ -31,6 +35,7 @@ public class KnockBack : MonoBehaviour
                 enemy.AddForce(difference, ForceMode2D.Impulse);
                 enemy.isKinematic = true;
                 StartCoroutine(KnockCo(enemy));
+                
             }
         }
         

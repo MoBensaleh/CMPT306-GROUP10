@@ -5,8 +5,7 @@ using UnityEngine;
 public class StartLevel : MonoBehaviour
 {
     public GameObject startMenuUI;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         startMenuUI.SetActive(true);

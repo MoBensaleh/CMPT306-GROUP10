@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
     float freezeTime;
     bool stunned;
     GameObject grid;
+    GridMap gridMap;
     Tilemap groundMap;
     Tile groundTile;
     Tile secondGroundTile;
@@ -30,6 +31,7 @@ public class Enemy : MonoBehaviour
         stunned = false;
 
         grid = GameObject.Find("Grid");
+        gridMap = grid.GetComponent<GridMap>();
         groundMap = grid.GetComponent<DungeonGenerator>().getGroundMap();
         groundTile = grid.GetComponent<DungeonGenerator>().getGroundTile();
         secondGroundTile = grid.GetComponent<DungeonGenerator>().getSecondGroundTile(); 
@@ -113,10 +115,15 @@ public class Enemy : MonoBehaviour
                     break;
                 } 
                 yield return null;
-
             }
         } 
 	}
+
+    public bool onTerminus() {
+        bool check = gridMap.checkTerminus(transform.position);
+        Debug.Log(check);
+        return check;
+    }
 
 	public void OnDrawGizmos() {
 		if (null != pathToGoal) {
