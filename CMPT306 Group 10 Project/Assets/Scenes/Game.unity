@@ -111094,6 +111094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startMenuUI: {fileID: 1625151981}
+  otherInventoryPanel: {fileID: 1838114715}
 --- !u!114 &1805351130
 MonoBehaviour:
   m_ObjectHideFlags: 0

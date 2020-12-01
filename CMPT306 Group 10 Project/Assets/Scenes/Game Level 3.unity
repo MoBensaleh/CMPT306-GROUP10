@@ -111091,6 +111091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startMenuUI: {fileID: 2035436787}
+  otherInventoryPanel: {fileID: 109381424}
 --- !u!114 &1848108072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111164,7 +111165,7 @@ RectTransform:
   m_Children:
   - {fileID: 2035436790}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
