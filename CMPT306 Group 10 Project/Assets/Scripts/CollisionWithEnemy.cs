@@ -8,7 +8,7 @@ public class CollisionWithEnemy : MonoBehaviour {
     SceneTransition transition;
     GameOverSound sound;
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.tag == "Enemy") {
             Debug.Log("Enemy hit");
             Time.timeScale = 0f;

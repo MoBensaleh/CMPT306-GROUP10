@@ -14,6 +14,8 @@ public class Throw : MonoBehaviour
     public GameObject otherInventoryPanel;
 
 
+
+
     public float throwForce = 20f;
 
 
@@ -26,6 +28,7 @@ public class Throw : MonoBehaviour
             if (!inventoryPanel.activeSelf && !PauseMenuPanel.activeSelf && !OptionsMenuPanel.activeSelf)
             {
                 ThrowItem();
+                
                 item.numberHeld -= 1;
                 if (otherInventoryPanel.activeSelf)
                 {
@@ -65,4 +68,5 @@ public class Throw : MonoBehaviour
         }
         
     }
+    
 }

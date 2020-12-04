@@ -729,7 +729,7 @@ GameObject:
   - component: {fileID: 248788394}
   m_Layer: 10
   m_Name: Key
-  m_TagString: Untagged
+  m_TagString: Key
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -744,7 +744,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.017178684, y: -0.004294634}
@@ -1492,7 +1492,7 @@ GameObject:
   - component: {fileID: 317026456}
   m_Layer: 10
   m_Name: Blessing
-  m_TagString: Untagged
+  m_TagString: Blessing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1522,7 +1522,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.00004786253, y: 0.0021294355}
@@ -108089,7 +108089,7 @@ GameObject:
   - component: {fileID: 1002703483}
   m_Layer: 10
   m_Name: Awakening Potion
-  m_TagString: Untagged
+  m_TagString: Awakening
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108119,7 +108119,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.00004786253, y: 0.0021294355}
@@ -109858,7 +109858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50d74badbdf8a4b198c7a311ddab3b0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 6
   timeBreak: 0
 --- !u!61 &1429426562
 BoxCollider2D:
@@ -109870,10 +109870,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.000000007450581, y: -0.024327517}
+  m_Offset: {x: 0.10509324, y: -0.38164708}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -109884,7 +109884,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 3.387236, y: 2.7146392}
   m_EdgeRadius: 0
 --- !u!50 &1429426563
 Rigidbody2D:
@@ -109894,7 +109894,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1429426560}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -109923,7 +109923,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 2
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
@@ -109966,7 +109966,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1429426560}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.5, y: -4.15, z: 0}
+  m_LocalPosition: {x: 8.8, y: -4.003, z: 0}
   m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -110506,7 +110506,7 @@ GameObject:
   - component: {fileID: 1679153106}
   m_Layer: 10
   m_Name: Boost
-  m_TagString: Untagged
+  m_TagString: Boost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110521,7 +110521,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -110617,11 +110617,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1694169649}
   - component: {fileID: 1694169648}
-  - component: {fileID: 1694169647}
   - component: {fileID: 1694169646}
+  - component: {fileID: 1694169647}
   m_Layer: 10
   m_Name: Cross
-  m_TagString: Untagged
+  m_TagString: Cross
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110651,10 +110651,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0010330677, y: -0.0011136532}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -110665,7 +110665,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.23107576, y: 0.32792807}
+  m_Size: {x: 0.22, y: 0.32}
   m_EdgeRadius: 0
 --- !u!212 &1694169648
 SpriteRenderer:
@@ -110931,7 +110931,7 @@ GameObject:
   - component: {fileID: 1804565691}
   m_Layer: 10
   m_Name: Candle
-  m_TagString: Untagged
+  m_TagString: Candle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110980,7 +110980,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.002446413, y: 0.038110256}

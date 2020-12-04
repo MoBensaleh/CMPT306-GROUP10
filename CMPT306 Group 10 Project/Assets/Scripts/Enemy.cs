@@ -24,7 +24,9 @@ public class Enemy : MonoBehaviour
     Tile secondGroundTile;
     Renderer renderer;
 
+
     void Start() {
+        
         material = GetComponent<Renderer>().material;
         timeCheck = timeBreak;
         freezeTime = 0;
@@ -43,6 +45,7 @@ public class Enemy : MonoBehaviour
     }
 
     void FixedUpdate() {
+        
         timeCheck += Time.deltaTime;
         if (Mathf.RoundToInt(freezeTime) > 0 && stunned) {
             freezeTime -= Time.deltaTime;
@@ -55,6 +58,8 @@ public class Enemy : MonoBehaviour
             goalLocation = goal.position;
             SearchHandler.RequestSearch(transform.position,goalLocation, searchFinished);
             timeCheck = 0;
+
+        
         }
 	}
 
@@ -118,6 +123,17 @@ public class Enemy : MonoBehaviour
             }
         } 
 	}
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.tag == "Cross" ||  other.gameObject.tag == "Awakening" || other.gameObject.tag == "Blessing"
+            || other.gameObject.tag == "Candle" || other.gameObject.tag == "Key" || other.gameObject.tag == "Boost" ||
+            other.gameObject.tag == "BoxandPlate" || other.gameObject.tag == "Statue")
+        {
+            Physics2D.IgnoreCollision(other.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+            
+        }
+        
+    }
 
     public bool onTerminus() {
         bool check = gridMap.checkTerminus(transform.position);

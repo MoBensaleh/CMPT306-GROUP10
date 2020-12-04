@@ -9,7 +9,7 @@ public class PhysicalInventoryItem : MonoBehaviour
     // Start is called before the first frame update
 
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {

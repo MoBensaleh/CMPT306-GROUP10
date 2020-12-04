@@ -29,11 +29,11 @@ public class KnockBack : MonoBehaviour
             enemyState = other.GetComponent<Enemy>();
             if(enemy != null)
             {
-                enemy.isKinematic = false;
+                
                 Vector2 difference = enemy.transform.position - transform.position;
                 difference = difference.normalized * thrust;
                 enemy.AddForce(difference, ForceMode2D.Impulse);
-                enemy.isKinematic = true;
+                
                 StartCoroutine(KnockCo(enemy));
                 
             }
@@ -46,7 +46,7 @@ public class KnockBack : MonoBehaviour
         {
             yield return new WaitForSeconds(knockTime);
             enemy.velocity = Vector2.zero;
-            enemy.isKinematic = true;
+         
 
         }
     }
