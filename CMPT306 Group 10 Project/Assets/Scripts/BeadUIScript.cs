@@ -6,17 +6,31 @@ using UnityEngine.UI;
 public class BeadUIScript : MonoBehaviour
 {
     Text text;
+    TextMesh textyBoi;
     public static int beadTotal;
 
     // Start is called before the first frame update
     void Start()
     {
-        text = GetComponent<Text>();
+        if (GetComponent<Text>()) {
+            text = GetComponent<Text>();
+            Debug.Log("Text");
+        }
+        else {
+            textyBoi = GetComponent<TextMesh>();
+            Debug.Log("Text Mesh");
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        text.text = PlayerBeadPouch.beadTotal.ToString();
+        if (GetComponent<Text>()) {
+            text.text = PlayerBeadPouch.beadTotal.ToString();
+        }
+        else {
+            textyBoi.text = PlayerBeadPouch.beadTotal.ToString();
+        }
+        
     }
 }
