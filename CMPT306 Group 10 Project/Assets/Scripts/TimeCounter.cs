@@ -7,6 +7,8 @@ public class TimeCounter : MonoBehaviour
 {
     public Text counterText;
 
+    public float timer = 0.0f;
+
     public float seconds, minutes;
 
     // Start is called before the first frame update
@@ -18,8 +20,9 @@ public class TimeCounter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        minutes = (int)(Time.time / 60f);
-        seconds = (int)(Time.time % 60f);
+        timer += Time.deltaTime;
+        minutes = (int)(timer / 60f);
+        seconds = (int)(timer % 60f);
         counterText.text = (minutes).ToString("00") + ":" + (seconds).ToString("00");
     }
 }
