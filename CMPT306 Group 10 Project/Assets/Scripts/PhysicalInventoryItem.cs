@@ -15,6 +15,7 @@ public class PhysicalInventoryItem : MonoBehaviour
         {
             AddItemToInventory();
             Destroy(this.gameObject);
+         
             if (inventoryPanel.activeSelf)
             {
                 inventoryPanel.SetActive(false);
@@ -35,6 +36,7 @@ public class PhysicalInventoryItem : MonoBehaviour
                 
                 thisItem.numberHeld += 1;
             }
+       
             else
             {
                 playerInventory.myInventory.Add(thisItem);

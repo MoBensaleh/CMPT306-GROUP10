@@ -10,7 +10,7 @@ public class KeyHolder : MonoBehaviour
     public static int amountOfStatuesActivated;
     [SerializeField] int amountOfStatues;
     [SerializeField] int amountOfPressurePlates;
-    [SerializeField] int amountOfKeys;
+    [SerializeField] static  int amountOfKeys;
 
     private void Awake() {
         keyList = new List<Key.KeyType>();
