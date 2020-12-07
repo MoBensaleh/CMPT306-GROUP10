@@ -1683,6 +1683,8 @@ MonoBehaviour:
   - {fileID: 317026455}
   - {fileID: 1804565690}
   - {fileID: 1679153105}
+  Bead: {fileID: 7242635732348233726, guid: 8f344c36a12fc5a45b2e465efbdf9cd3, type: 3}
+  maxBeads: 10
   enemy: {fileID: 3894706099912008452, guid: fa2d222053fc647ad89d6e57b38770c7, type: 3}
   maxEnemies: 3
   keyTask: {fileID: 248788388}
@@ -105617,7 +105619,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 505.05, y: 264}
+  m_AnchoredPosition: {x: 372.4, y: 264}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &750313137
@@ -105633,6 +105635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counterText: {fileID: 0}
+  timer: 0
   seconds: 0
   minutes: 0
 --- !u!114 &750313138

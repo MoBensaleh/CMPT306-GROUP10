@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7242635732348233727}
   - component: {fileID: 6875429655783739140}
   - component: {fileID: 8730992318895547495}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,3 +112,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05a3fcfe1b15259459781d3ab58b043f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: {fileID: 0}
