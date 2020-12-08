@@ -22,9 +22,6 @@ public class IncreasePlayerSpeed : MonoBehaviour
         {
             IncreaseSpeed();
             delayTime += Time.deltaTime;
-            Debug.Log(delayTime);
-
-
         }
         else
         {

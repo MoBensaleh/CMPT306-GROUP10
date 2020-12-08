@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class KeyHolder : MonoBehaviour
 {
-    private List<Key.KeyType> keyList;
+    SceneTransition transition;
+    SoundEffect winSound;
+    public static int keyList;
     public static int amountOfPressurePlatesActivated;
     public static int amountOfStatuesActivated;
     [SerializeField] int amountOfStatues;
@@ -13,21 +15,11 @@ public class KeyHolder : MonoBehaviour
     [SerializeField] int amountOfKeys;
 
     private void Awake() {
-        keyList = new List<Key.KeyType>();
-    }
-
-    public void AddKey(Key.KeyType keyType){
-        Debug.Log("Added Key: " + keyType);
-        keyList.Add(keyType);
-    }
-
-    public void RemoveKey(Key.KeyType keyType){
-        Debug.Log("Removed Key: " + keyType);
-        keyList.Remove(keyType);
+        keyList = 0;
     }
 
     public bool ContainsAllKeys(){
-        if (keyList.Count == amountOfKeys) {
+        if (keyList >= amountOfKeys) {
             Debug.Log("All Keys contained");
             return true;
         } else {
@@ -54,31 +46,39 @@ public class KeyHolder : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collider) {
-        Key key = collider.GetComponent<Key>();
-        if (key != null) {
-            AddKey(key.GetKeyType());
-            Destroy(key.gameObject);
+    private void OnCollisionEnter2D(Collision2D collider) {
+        if (collider.gameObject.tag == "Key") {
+            keyList = keyList + 1;
+            Debug.Log(keyList);
         }
 
-        KeyDoor keyDoor = collider.GetComponent<KeyDoor>();
-        if (keyDoor != null){
+        if (collider.gameObject.tag == "Door"){
             if (ContainsAllKeys() && allPressurePlatesActive() && allStatuesActivated()){
                 //Opens Door if all keys are obtained
-                keyDoor.OpenDoor();
+                Destroy(collider.gameObject);
             }
         }
 
-        Portal portal = collider.GetComponent<Portal>();
-        if (portal != null){
+        Debug.Log("collison hit");
+        if (collider.gameObject.tag == "Portal"){
+            Debug.Log("portal hit");
             Scene currentScene = SceneManager.GetActiveScene();
             string sceneName = currentScene.name;
             if (sceneName == "Game"){
-                portal.goToLevel2();
+                Time.timeScale = 1f;
+                SceneManager.LoadScene("Game Level 2");
             } else if (sceneName == "Game Level 2"){
-                portal.goToLevel3();
+                Time.timeScale = 1f;
+                SceneManager.LoadScene("Game Level 3");
             } else if (sceneName == "Game Level 3"){
-                portal.win();
+                Debug.Log("Victory");
+                Time.timeScale = 0f;
+
+                winSound = this.GetComponentInChildren<SoundEffect>();
+                transition = this.GetComponent<SceneTransition>();
+
+                winSound.PlayMusic();
+                transition.LoadLevel("Win");
             }
         }
     }
