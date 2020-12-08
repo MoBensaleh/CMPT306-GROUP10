@@ -267,7 +267,7 @@ public class DungeonGenerator : MonoBehaviour
                         {
                             if (Mathf.Abs(Vector3.Distance(GameObject.FindWithTag("Player").transform.position, keyTask.transform.position)) >= 5)
                             {
-                                GameObject instantiatedKey = Instantiate(keyTask, new Vector3(previousPos.x - yOffset - 1, previousPos.y + xOffset + 1), keyTask.transform.rotation) as GameObject;
+                                GameObject instantiatedKey = Instantiate(keyTask, new Vector3(previousPos.x - yOffset - yOffset, previousPos.y + xOffset + xOffset), keyTask.transform.rotation) as GameObject;
                                 if (Mathf.Abs(Vector3.Distance(keyTask.transform.position, instantiatedKey.transform.position)) < 30)
                                 {
 
@@ -438,7 +438,7 @@ public class DungeonGenerator : MonoBehaviour
                         {
                             if (Mathf.Abs(Vector3.Distance(GameObject.FindWithTag("Player").transform.position, keyTask.transform.position)) >= 5)
                             {
-                                GameObject instantiatedKey = Instantiate(keyTask, new Vector3(previousPos.x + yOffset + 1, previousPos.y - xOffset - 1), keyTask.transform.rotation) as GameObject;
+                                GameObject instantiatedKey = Instantiate(keyTask, new Vector3(previousPos.x + yOffset + yOffset, previousPos.y - xOffset - xOffset), keyTask.transform.rotation) as GameObject;
                                 if (Mathf.Abs(Vector3.Distance(keyTask.transform.position, instantiatedKey.transform.position)) < 30)
                                 {
 
