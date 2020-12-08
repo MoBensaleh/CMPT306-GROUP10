@@ -134,6 +134,9 @@ TextureImporter:
   - first:
       213: 3084604627931351016
     second: Dungeon_43
+  - first:
+      213: -2164789337223182612
+    second: Dungeon_44
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -178,7 +181,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -1106,8 +1109,8 @@ TextureImporter:
       name: Dungeon_42
       rect:
         serializedVersion: 2
-        x: 3
-        y: 783
+        x: 0
+        y: 654
         width: 122
         height: 92
       alignment: 0
@@ -1132,7 +1135,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1140,6 +1143,27 @@ TextureImporter:
       bones: []
       spriteID: 8e7cf50f097beca20800000000000000
       internalID: 3084604627931351016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_44
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 788
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce6424d319f15f1e0800000000000000
+      internalID: -2164789337223182612
       vertices: []
       indices: 
       edges: []

@@ -6377,6 +6377,12 @@ TextureImporter:
   - first:
       213: -2651892977795893545
     second: DungeonCrawl_ProjectUtumno_2124
+  - first:
+      213: -8692259342435361942
+    second: DungeonCrawl_ProjectUtumno_2125
+  - first:
+      213: 3415908871855647601
+    second: DungeonCrawl_ProjectUtumno_2126
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -51055,7 +51061,7 @@ TextureImporter:
         width: 33
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -51076,7 +51082,7 @@ TextureImporter:
         width: 31
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -51084,6 +51090,48 @@ TextureImporter:
       bones: []
       spriteID: 7d67f141365923bd0800000000000000
       internalID: -2651892977795893545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DungeonCrawl_ProjectUtumno_2125
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1055
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6bd19e7e24ee5780800000000000000
+      internalID: -8692259342435361942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DungeonCrawl_ProjectUtumno_2126
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 1088
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17baf0c450fb76f20800000000000000
+      internalID: 3415908871855647601
       vertices: []
       indices: 
       edges: []
