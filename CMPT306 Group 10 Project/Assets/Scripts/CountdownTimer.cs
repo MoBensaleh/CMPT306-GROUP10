@@ -8,12 +8,12 @@ public class CountdownTimer : MonoBehaviour
     SceneTransition transition;
 
     [SerializeField] public string levelToLoad;
-    [SerializeField] public float timer = 10f;
+    [SerializeField] public float timer = 2f;
 
     // Start is called before the first frame update
     void Start()
     {
-       
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame
