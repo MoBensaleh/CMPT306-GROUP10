@@ -46,7 +46,7 @@ public class PlayerAim : MonoBehaviour
 
         Vector3 localScale = Vector3.one;
         // Front Facing Left
-        if (rotateZ >= 170f && 180f >= rotateZ)
+        if (rotateZ >= 160f && 180f >= rotateZ)
         {
             spriteRenderer.sprite = sprites[5];
             //Debug.Log("Dir Changed 1");
@@ -63,7 +63,7 @@ public class PlayerAim : MonoBehaviour
             spriteRenderer.sprite = sprites[3];
             //Debug.Log("Dir Changed 3");
         }
-        else if (rotateZ >= 100f && 120f >= rotateZ)
+        else if (rotateZ >= 95f && 115f >= rotateZ)
         {
             spriteRenderer.sprite = sprites[6];
         }
