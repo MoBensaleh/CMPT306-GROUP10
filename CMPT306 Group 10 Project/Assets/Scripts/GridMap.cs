@@ -126,7 +126,11 @@ public class GridMap : MonoBehaviour
         } else {
             return false;
         }
+    }
 
+    public bool checkTerminus(Vector3 location) {
+        State pos = RetrieveState(location);
+        return pos.isTerminus();
     }
 
     public State RetrieveState(Vector3 location) {

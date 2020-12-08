@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Throw : MonoBehaviour
 {
@@ -8,9 +9,11 @@ public class Throw : MonoBehaviour
     public GameObject crossPrefab;
     public InventoryItem item;
     public GameObject inventoryPanel;
-    public GameObject otherInventoryPanel;
     public GameObject PauseMenuPanel;
     public GameObject OptionsMenuPanel;
+    public GameObject otherInventoryPanel;
+
+
 
 
     public float throwForce = 20f;
@@ -20,15 +23,24 @@ public class Throw : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && !IsMouseOverUI())
             {
-            ThrowItem();
-            if (!inventoryPanel.activeSelf && !otherInventoryPanel.activeSelf && !PauseMenuPanel.activeSelf && !OptionsMenuPanel.activeSelf)
+            if (!inventoryPanel.activeSelf && !PauseMenuPanel.activeSelf && !OptionsMenuPanel.activeSelf)
             {
+                ThrowItem();
+                
                 item.numberHeld -= 1;
+                if (otherInventoryPanel.activeSelf)
+                {
+                    otherInventoryPanel.SetActive(false);
+                    otherInventoryPanel.SetActive(true);
+
+                }
+                
+
 
             }
-            
+
 
 
             if (item.numberHeld < 0)
@@ -40,6 +52,10 @@ public class Throw : MonoBehaviour
         
         }
     }
+    private bool IsMouseOverUI()
+    {
+        return EventSystem.current.IsPointerOverGameObject();
+    }
 
     void ThrowItem()
     {
@@ -48,8 +64,9 @@ public class Throw : MonoBehaviour
             GameObject cross = Instantiate(crossPrefab, throwOrigin.position, throwOrigin.rotation);
             Rigidbody2D rb = cross.GetComponent<Rigidbody2D>();
             rb.AddForce(throwOrigin.up * throwForce, ForceMode2D.Impulse);
-
+            
         }
         
     }
+    
 }

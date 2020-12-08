@@ -6,12 +6,15 @@ using TMPro;
 public class InventoryManager : MonoBehaviour
 {
     [Header("Inventory Information")]
-    public PlayerInventory playerInventory;
+    
     [SerializeField] private GameObject blankInventorySlot;
     [SerializeField] private GameObject inventoryPanel;
     [SerializeField] private GameObject inventory;
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private GameObject useButton;
+    [SerializeField] private PlayerInventory playerInventory;
+    [SerializeField] private GameObject otherInventoryPanel;
+
     public InventoryItem currentItem;
     
     
@@ -86,6 +89,8 @@ public class InventoryManager : MonoBehaviour
 
             inventory.SetActive(false);
             Time.timeScale = 1f;
+            otherInventoryPanel.SetActive(false);
+            otherInventoryPanel.SetActive(true);
 
             // Clear all of the inventory slots
             ClearInventorySlots();
@@ -100,5 +105,7 @@ public class InventoryManager : MonoBehaviour
 
 
         }
+
     }
+
 }

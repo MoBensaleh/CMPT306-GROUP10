@@ -5,15 +5,14 @@ using UnityEngine;
 public class InventoryPanel : MonoBehaviour
 {
 
-
     public GameObject inventoryPanel;
     public bool inventoryActive;
 
     private void Start()
     {
 
-        inventoryPanel.SetActive(false);
-        inventoryActive = false;
+        inventoryActive = true;
+        inventoryPanel.SetActive(true);
 
     }
 
@@ -25,7 +24,6 @@ public class InventoryPanel : MonoBehaviour
         {
             if (inventoryActive)
             {
-
                 inventoryPanel.SetActive(false);
                 inventoryActive = false;
             }
