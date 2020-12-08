@@ -35,7 +35,7 @@ public class PlayerAim : MonoBehaviour
         direction.Normalize();
 
         rotateZ = Mathf.Atan2(-direction.x, direction.y) * Mathf.Rad2Deg;
-        //transform.rotation = Quaternion.Euler(0f, 0f, rotateZ + 90);
+        throwOrigin.transform.rotation = Quaternion.Euler(0f, 0f, rotateZ);
         
 
         spriteRotation();

@@ -16,12 +16,14 @@ public class Throw : MonoBehaviour
 
 
 
+
     public float throwForce = 20f;
 
 
     // Update is called once per frame
     void Update()
     {
+        
 
         if (Input.GetButtonDown("Fire1") && !IsMouseOverUI())
             {
