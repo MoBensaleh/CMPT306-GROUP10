@@ -891,6 +891,7 @@ MonoBehaviour:
   - {fileID: 6829758133237105375, guid: 421dcac004e4b404395705f891471b40, type: 3}
   - {fileID: 98220260721491598, guid: 421dcac004e4b404395705f891471b40, type: 3}
   Player: {fileID: 316176842}
+  throwOrigin: {fileID: 0}
 --- !u!212 &316176847
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1403,8 +1404,8 @@ MonoBehaviour:
   - {fileID: 317026455}
   - {fileID: 1804565690}
   - {fileID: 1333068581}
-  Bead: {fileID: 0}
-  maxBeads: 0
+  Bead: {fileID: 7242635732348233726, guid: 8f344c36a12fc5a45b2e465efbdf9cd3, type: 3}
+  maxBeads: 10
   enemy: {fileID: 3894706099912008452, guid: fa2d222053fc647ad89d6e57b38770c7, type: 3}
   maxEnemies: 3
   keyTask: {fileID: 7126846466829050197, guid: 2ddb7668c9ee049f789d13df015a4196, type: 3}
