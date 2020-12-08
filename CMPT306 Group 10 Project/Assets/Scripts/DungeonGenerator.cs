@@ -267,7 +267,7 @@ public class DungeonGenerator : MonoBehaviour
                         {
                             if (Mathf.Abs(Vector3.Distance(GameObject.FindWithTag("Player").transform.position, keyTask.transform.position)) >= 5)
                             {
-                                GameObject instantiatedKey = Instantiate(keyTask, new Vector3(previousPos.x - yOffset - yOffset, previousPos.y + xOffset + xOffset), keyTask.transform.rotation) as GameObject;
+                                GameObject instantiatedKey = Instantiate(keyTask, new Vector3(previousPos.x - yOffset, previousPos.y + xOffset), keyTask.transform.rotation) as GameObject;
                                 if (Mathf.Abs(Vector3.Distance(keyTask.transform.position, instantiatedKey.transform.position)) < 30)
                                 {
 
@@ -333,6 +333,20 @@ public class DungeonGenerator : MonoBehaviour
 
                         int randomIndex = Random.Range(0, myObjects.Length);
                         GameObject instantiatedObject = Instantiate(myObjects[randomIndex], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
+                        try
+                        {
+                            for (int i = 0; i < GameObject.FindGameObjectsWithTag("Key").Length; i++)
+                            {
+                                if (Mathf.Abs(Vector3.Distance(GameObject.FindGameObjectsWithTag("Key")[i].transform.position, instantiatedObject.transform.position)) <= 5)
+                                {
+                                    Destroy(instantiatedObject);
+                                }
+                            }
+                        }
+                        catch (System.Exception e)
+                        {
+                            Debug.LogException(e, this);
+                        }
 
                         if (numOfBeads < maxBeads)
                         {
@@ -438,7 +452,7 @@ public class DungeonGenerator : MonoBehaviour
                         {
                             if (Mathf.Abs(Vector3.Distance(GameObject.FindWithTag("Player").transform.position, keyTask.transform.position)) >= 5)
                             {
-                                GameObject instantiatedKey = Instantiate(keyTask, new Vector3(previousPos.x + yOffset + yOffset, previousPos.y - xOffset - xOffset), keyTask.transform.rotation) as GameObject;
+                                GameObject instantiatedKey = Instantiate(keyTask, new Vector3(previousPos.x + yOffset, previousPos.y - xOffset), keyTask.transform.rotation) as GameObject;
                                 if (Mathf.Abs(Vector3.Distance(keyTask.transform.position, instantiatedKey.transform.position)) < 30)
                                 {
 
@@ -504,6 +518,20 @@ public class DungeonGenerator : MonoBehaviour
 
                         int randomIndex = Random.Range(0, myObjects.Length);
                         GameObject instantiatedObject = Instantiate(myObjects[randomIndex], new Vector3(previousPos.x, previousPos.y), Quaternion.identity) as GameObject;
+                        try
+                        {
+                            for (int i = 0; i < GameObject.FindGameObjectsWithTag("Key").Length; i++)
+                            {
+                                if (Mathf.Abs(Vector3.Distance(GameObject.FindGameObjectsWithTag("Key")[i].transform.position, instantiatedObject.transform.position)) <= 5)
+                                {
+                                    Destroy(instantiatedObject);
+                                }
+                            }
+                        }
+                        catch (System.Exception e)
+                        {
+                            Debug.LogException(e, this);
+                        }
 
                         if (numOfBeads < maxBeads)
                         {
