@@ -1119,7 +1119,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.1}
+  m_Size: {x: 0.7, y: 0.7}
   m_EdgeRadius: 0
 --- !u!50 &316176844
 Rigidbody2D:
@@ -1141,7 +1141,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &316176845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1170,6 +1170,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fov: {fileID: 517994622}
+  sprites:
+  - {fileID: 7597059528743048927, guid: 421dcac004e4b404395705f891471b40, type: 3}
+  - {fileID: -8024639089158920504, guid: 421dcac004e4b404395705f891471b40, type: 3}
+  - {fileID: -7454846502952642249, guid: 421dcac004e4b404395705f891471b40, type: 3}
+  - {fileID: 7190610643893951282, guid: 421dcac004e4b404395705f891471b40, type: 3}
+  - {fileID: -8025053292621652955, guid: 421dcac004e4b404395705f891471b40, type: 3}
+  - {fileID: -6654308200825614872, guid: 421dcac004e4b404395705f891471b40, type: 3}
+  - {fileID: -5884236762334995810, guid: 421dcac004e4b404395705f891471b40, type: 3}
+  - {fileID: 6829758133237105375, guid: 421dcac004e4b404395705f891471b40, type: 3}
+  - {fileID: 98220260721491598, guid: 421dcac004e4b404395705f891471b40, type: 3}
+  Player: {fileID: 316176842}
 --- !u!212 &316176847
 SpriteRenderer:
   m_ObjectHideFlags: 0

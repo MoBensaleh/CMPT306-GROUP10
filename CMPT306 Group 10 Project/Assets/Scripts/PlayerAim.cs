@@ -48,7 +48,7 @@ public class PlayerAim : MonoBehaviour
         // Front Facing Left
         if (rotateZ >= 170f && 180f >= rotateZ)
         {
-            spriteRenderer.sprite = sprites[0];
+            spriteRenderer.sprite = sprites[5];
             //Debug.Log("Dir Changed 1");
         }
         // More-Left Facing
@@ -58,41 +58,41 @@ public class PlayerAim : MonoBehaviour
             //Debug.Log("Dir Changed 2");
         }
         // Directly Left Facing
-        else if (rotateZ >= -85f && -55f >= rotateZ)
+        else if (rotateZ >= -85f && -10f >= rotateZ)
         {
             spriteRenderer.sprite = sprites[3];
             //Debug.Log("Dir Changed 3");
         }
-
+        else if (rotateZ >= 100f && 120f >= rotateZ)
+        {
+            spriteRenderer.sprite = sprites[6];
+        }
         // Back Left 
-        else if (rotateZ <= 5f && -5f >= rotateZ)
+        else if (rotateZ >= -9f && 15f >= rotateZ)
         {
             spriteRenderer.sprite = sprites[4];
         }
-        // Back
-        else if (rotateZ <= 90f && 120f >= rotateZ)
+        else if (rotateZ >= -140f && -106f >= rotateZ)
         {
-            spriteRenderer.sprite = sprites[5];
-            localScale.y = -1;
-            transform.localScale = localScale;
-            //Debug.Log("Dir Changed 4");
+            spriteRenderer.sprite = sprites[1];
+        }
+        else if (rotateZ >= 90f && 120f >= rotateZ)
+        {
+            spriteRenderer.sprite = sprites[0];
         }
         // Back Right
-        else if (rotateZ <= 15f && 7f >= rotateZ)
+        else if (rotateZ >= 16f && 30f >= rotateZ)
         {
             spriteRenderer.sprite = sprites[8];
-            localScale.x = -1;
-            transform.localScale = localScale;
+            //localScale.x = -1;
+            //transform.localScale = localScale;
         }
         // Directly Right
-        else if (rotateZ <= 5f && -7f >= rotateZ)
+        else if (rotateZ >= 80f && 100f >= rotateZ)
         {
             spriteRenderer.sprite = sprites[7];
         }
         // More Right Facing
-        else if (rotateZ <= -165f && -150f >= rotateZ)
-        {
-            spriteRenderer.sprite = sprites[1];
-        }
+
     }
 }

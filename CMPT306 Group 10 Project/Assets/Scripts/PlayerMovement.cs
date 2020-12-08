@@ -17,12 +17,16 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Vector3 mousePos = viewCamera.
+        // Input
+        //ProcessInputs(); //Uncomment for original, Mac 2020-11-11
+        //transform.LookAt(mouseP)
 
         //Mac 2020-11-11
         moveDirection.x = Input.GetAxisRaw("Horizontal");
         moveDirection.y = Input.GetAxisRaw("Vertical");
 
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition).normalized;
 
     }
 
@@ -35,12 +39,10 @@ public class PlayerMovement : MonoBehaviour
         rb.MovePosition(rb.position + moveDirection * moveSpeed * Time.fixedDeltaTime);
         Vector2 lookDir = mousePos - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
-        rb.rotation = angle;
+        rb.rotation = 360f;
 
         fov.SetOrigin(transform.position);
     }
-<<<<<<< HEAD
-=======
 
     void ProcessInputs()
     {
@@ -60,5 +62,4 @@ public class PlayerMovement : MonoBehaviour
     {
         this.moveSpeed = moveSpeed;
     }
->>>>>>> a4239d3a7a9c1a72e41b00de6a09b10e0d653d55
 }
