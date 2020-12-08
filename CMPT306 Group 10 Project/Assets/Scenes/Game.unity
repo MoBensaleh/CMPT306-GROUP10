@@ -1028,6 +1028,7 @@ MonoBehaviour:
   - {fileID: 6829758133237105375, guid: 421dcac004e4b404395705f891471b40, type: 3}
   - {fileID: 98220260721491598, guid: 421dcac004e4b404395705f891471b40, type: 3}
   Player: {fileID: 316176842}
+  throwOrigin: {fileID: 1202060206}
 --- !u!212 &316176847
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -108722,7 +108723,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1002703482}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.197, y: -0.737, z: -7.7065268}
+  m_LocalPosition: {x: 1.614, y: -0.686, z: -7.7065268}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -109522,7 +109523,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1202060206}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.3, y: 0.01, z: 0.05}
+  m_LocalPosition: {x: 0.59, y: 0.01, z: 0.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 316176848}

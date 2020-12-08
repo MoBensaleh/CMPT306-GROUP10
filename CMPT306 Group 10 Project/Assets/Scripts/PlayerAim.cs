@@ -17,15 +17,18 @@ public class PlayerAim : MonoBehaviour
     {
         transform = Player.GetComponent<Transform>();
         spriteRenderer = Player.GetComponent<SpriteRenderer>();
+        
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
         Aim();
+        
         // Debug.Log(rotateZ);
     }
 
+  
     private void Aim()
     {
         direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
@@ -37,6 +40,8 @@ public class PlayerAim : MonoBehaviour
 
         spriteRotation();
         fov.SetAimDirection(direction);
+        
+        
 
     }
 

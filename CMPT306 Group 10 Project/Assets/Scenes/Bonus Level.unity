@@ -103660,9 +103660,9 @@ MonoBehaviour:
   Bead: {fileID: 7242635732348233726, guid: 8f344c36a12fc5a45b2e465efbdf9cd3, type: 3}
   maxBeads: 10
   enemy: {fileID: 1804974183}
-  maxEnemies: 3
+  maxEnemies: 7
   keyTask: {fileID: 7126846466829050197, guid: 2ddb7668c9ee049f789d13df015a4196, type: 3}
-  maxTask1Items: 2
+  maxTask1Items: 0
   cursedStatueTask: {fileID: 0}
   maxTask2Items: 0
   pressurePlateTask: []
@@ -107502,6 +107502,7 @@ MonoBehaviour:
   - {fileID: 6829758133237105375, guid: 421dcac004e4b404395705f891471b40, type: 3}
   - {fileID: 98220260721491598, guid: 421dcac004e4b404395705f891471b40, type: 3}
   Player: {fileID: 1260676965}
+  throwOrigin: {fileID: 1544940652}
 --- !u!50 &1260676975
 Rigidbody2D:
   serializedVersion: 4
@@ -107583,7 +107584,7 @@ Transform:
   m_GameObject: {fileID: 1260676965}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.38, y: 2.22, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 350280151}
   - {fileID: 1208426064}
@@ -108569,7 +108570,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1544940652}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.117, y: 0.01, z: 0}
+  m_LocalPosition: {x: 0.42, y: 0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1260676977}
