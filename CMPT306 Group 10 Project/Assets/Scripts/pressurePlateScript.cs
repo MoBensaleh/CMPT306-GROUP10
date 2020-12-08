@@ -8,11 +8,9 @@ public class pressurePlateScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider) {
         Box box = collider.GetComponent<Box>();
-
         if (box != null){
             KeyHolder.amountOfPressurePlatesActivated = KeyHolder.amountOfPressurePlatesActivated + 1;
-        } else {
-            KeyHolder.amountOfPressurePlatesActivated = KeyHolder.amountOfPressurePlatesActivated - 1;
-        }
+            Debug.Log(KeyHolder.amountOfPressurePlatesActivated);
+        } 
     }
 }

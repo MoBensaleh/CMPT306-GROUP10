@@ -74,8 +74,8 @@ public class KeyHolder : MonoBehaviour
                 Debug.Log("Victory");
                 Time.timeScale = 0f;
 
-                winSound = this.GetComponentInChildren<SoundEffect>();
-                transition = this.GetComponent<SceneTransition>();
+                winSound = collider.gameObject.GetComponentInChildren<SoundEffect>();
+                transition = collider.gameObject.GetComponent<SceneTransition>();
 
                 winSound.PlayMusic();
                 transition.LoadLevel("Win");
