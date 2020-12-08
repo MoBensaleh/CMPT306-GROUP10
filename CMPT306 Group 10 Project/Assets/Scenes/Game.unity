@@ -1100,6 +1100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amountOfStatues: 0
   amountOfPressurePlates: 0
+  amountOfKeys: 3
 --- !u!114 &316176850
 MonoBehaviour:
   m_ObjectHideFlags: 0
