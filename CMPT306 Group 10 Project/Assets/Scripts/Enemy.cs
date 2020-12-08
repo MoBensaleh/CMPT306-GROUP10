@@ -127,7 +127,7 @@ public class Enemy : MonoBehaviour
     {
         if(other.gameObject.tag == "Cross" ||  other.gameObject.tag == "Awakening" || other.gameObject.tag == "Blessing"
             || other.gameObject.tag == "Candle" || other.gameObject.tag == "Key" || other.gameObject.tag == "Boost" ||
-            other.gameObject.tag == "BoxandPlate" || other.gameObject.tag == "Statue")
+            other.gameObject.tag == "BoxandPlate" || other.gameObject.tag == "Box" || other.gameObject.tag == "Statue")
         {
             Physics2D.IgnoreCollision(other.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
             
