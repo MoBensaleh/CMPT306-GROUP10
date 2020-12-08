@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private FieldOfView fov;
-    public float moveSpeed = 8.0f;
+    private float moveSpeed = 5.0f;
     public Rigidbody2D rb;
     private Vector2 moveDirection;
 
@@ -39,4 +39,26 @@ public class PlayerMovement : MonoBehaviour
 
         fov.SetOrigin(transform.position);
     }
+<<<<<<< HEAD
+=======
+
+    void ProcessInputs()
+    {
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveY = Input.GetAxisRaw("Vertical");
+
+        moveDirection = new Vector2(moveX, moveY).normalized;
+    }
+
+    void Move()
+    {
+      
+        rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+        fov.SetOrigin(transform.position);
+    }
+    public void SetMoveSpeed(float moveSpeed)
+    {
+        this.moveSpeed = moveSpeed;
+    }
+>>>>>>> a4239d3a7a9c1a72e41b00de6a09b10e0d653d55
 }
