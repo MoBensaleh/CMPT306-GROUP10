@@ -47,7 +47,6 @@ public class PlayerAim : MonoBehaviour
 
     private void spriteRotation()
     {
-        Debug.Log(rotateZ);
 
         Vector3 localScale = Vector3.one;
         // Front Facing Left

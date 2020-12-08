@@ -18,6 +18,9 @@ TagManager:
   - Blessing
   - Boost
   - BoxandPlate
+  - Door
+  - Portal
+  - Box
   layers:
   - Default
   - TransparentFX
