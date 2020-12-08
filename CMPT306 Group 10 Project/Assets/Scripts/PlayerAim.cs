@@ -10,6 +10,7 @@ public class PlayerAim : MonoBehaviour
     [SerializeField] private Sprite[] sprites;
     SpriteRenderer spriteRenderer;
     public GameObject Player;
+    public GameObject throwOrigin;
     Transform transform;
 
     private void Awake()
@@ -27,7 +28,6 @@ public class PlayerAim : MonoBehaviour
 
     private void Aim()
     {
-        float fixedZ = -90f;
         direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         direction.Normalize();
 
