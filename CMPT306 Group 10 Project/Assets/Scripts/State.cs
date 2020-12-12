@@ -17,6 +17,8 @@ public class State : IState<State>
     public int gOfN, hOfN;
     public State parent;
     int stateIndex;
+    public bool terminus;
+    public int cost;
     
     public int fOfN {
         get {
@@ -39,6 +41,8 @@ public class State : IState<State>
         location = myLocation;
         xCoordinate = X;
         yCoordinate = Y;
+        cost = 1;
+        terminus = false;
     }
 
     public int CompareTo(State otherState) {
@@ -48,5 +52,23 @@ public class State : IState<State>
         }
         checkValue = -checkValue;
         return checkValue;
+    }
+
+    public void changeBlocked(bool myUnblocked) {
+        unblocked = myUnblocked;
+    }
+
+    public void setTerminus(bool terminus) {
+        this.terminus = terminus;
+        if (terminus) cost = 2;
+        else cost = 1;
+    }
+
+    public bool isBlocked() {
+        return !this.unblocked;
+    }
+
+    public bool isTerminus() {
+        return this.terminus;
     }
 }

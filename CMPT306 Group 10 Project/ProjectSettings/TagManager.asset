@@ -3,7 +3,24 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - Death Sound
+  - FOV
+  - Pause Canvas
+  - Inventory Canvas
+  - Statue
+  - Win Sound
+  - Cross
+  - Awakening
+  - Key
+  - Candle
+  - Blessing
+  - Boost
+  - BoxandPlate
+  - Door
+  - Portal
+  - Box
   layers:
   - Default
   - TransparentFX

@@ -1,7 +1,4 @@
-﻿
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FieldOfView : MonoBehaviour {
 
@@ -30,7 +27,11 @@ public class FieldOfView : MonoBehaviour {
         mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = mesh;
         fov = 60f;
+<<<<<<< HEAD
         viewDistance = 6f;
+=======
+        viewDistance = 4.5f;
+>>>>>>> development
         origin = Vector3.zero;
     }
 
@@ -52,7 +53,7 @@ public class FieldOfView : MonoBehaviour {
             RaycastHit2D raycastHit2D = Physics2D.Raycast(origin, GetVectorFromAngle(angle), viewDistance, layerMask);
 
             if (raycastHit2D.collider != null) vertex = raycastHit2D.point;
-
+            
             else vertex = origin + GetVectorFromAngle(angle) * viewDistance;
 
             vertices[vertexIndex] = vertex;
@@ -67,6 +68,7 @@ public class FieldOfView : MonoBehaviour {
 
             vertexIndex++;
             angle -= angleIncrease;
+
         }
 
 

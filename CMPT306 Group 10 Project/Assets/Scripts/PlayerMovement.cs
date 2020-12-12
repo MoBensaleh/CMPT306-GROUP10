@@ -6,25 +6,42 @@ using UnityEngine.EventSystems;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private FieldOfView fov;
-    public float moveSpeed = 8.0f;
+    private float moveSpeed = 5.0f;
     public Rigidbody2D rb;
     private Vector2 moveDirection;
+
+    //Mac 2020-11-11
+    public Camera cam;
+    Vector2 mousePos;
 
     // Update is called once per frame
     void Update()
     {
         //Vector3 mousePos = viewCamera.
         // Input
-        ProcessInputs();
+        //ProcessInputs(); //Uncomment for original, Mac 2020-11-11
         //transform.LookAt(mouseP)
+
+        //Mac 2020-11-11
+        moveDirection.x = Input.GetAxisRaw("Horizontal");
+        moveDirection.y = Input.GetAxisRaw("Vertical");
+
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition).normalized;
 
     }
 
     private void FixedUpdate()
     {
         // Movement
-        Move();
+        // Move(); //Uncomment for original, Mac 2020-11-11
         
+        //Mac 2020-11-11
+        rb.MovePosition(rb.position + moveDirection * moveSpeed * Time.fixedDeltaTime);
+        Vector2 lookDir = mousePos - rb.position;
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
+        rb.rotation = 360f;
+
+        fov.SetOrigin(transform.position);
     }
 
     void ProcessInputs()
@@ -40,5 +57,9 @@ public class PlayerMovement : MonoBehaviour
       
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
         fov.SetOrigin(transform.position);
+    }
+    public void SetMoveSpeed(float moveSpeed)
+    {
+        this.moveSpeed = moveSpeed;
     }
 }
