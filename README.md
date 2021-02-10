@@ -1,4 +1,4 @@
-# CMPT306-GROUP10
+# Curse's Labyrinth
 GitHub Repo for Group 10 of CMPT 306 Fall 2020's Unity Project
 
 **NOTE:** Currently within this repo is a Unity Project "CMPT 306 Group 10 Project" - we may want to get rid of this and replace it with a better named one (i.e. whatever our game is actually called) 
